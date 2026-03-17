@@ -201,10 +201,42 @@ em { font-style: italic; }
 
 .trust-sep { color: var(--border); }
 
+.hero-subsub {
+  font-size: 22px;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: 20px;
+  letter-spacing: -0.2px;
+}
+
 .hero-note {
   font-size: 13px;
   color: var(--text-muted);
   letter-spacing: 0.3px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.founder-note {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.founder-note p {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.mock-fade {
+  animation: mock-fade-in 0.4s ease;
+}
+
+@keyframes mock-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Popup Mockup ── */

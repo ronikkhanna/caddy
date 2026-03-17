@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- ── NAV ── -->
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">Caddy</a>
@@ -23,7 +23,7 @@
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
@@ -32,6 +32,7 @@
           Your browser,<br>
           <em>remembered.</em>
         </h1>
+        <p class="hero-subsub">Stop re-Googling your own research.</p>
         <p class="hero-sub">
           A golf caddy knows which club you need before you ask.
           Caddy does the same for your tabs, quietly archiving
@@ -41,8 +42,8 @@
           It automatically archives inactive tabs after 24 hours, makes every one of them searchable,
           and restores the right ones when your calendar says it's time.
         </p>
+        <p class="hero-note">Free to start &nbsp;·&nbsp; No account &nbsp;·&nbsp; Everything stays in your browser</p>
         <a href="#waitlist" class="btn-hero">Join the Early Access Waitlist</a>
-        <p class="hero-note">Free to start · No account · Everything stays in your browser</p>
       </div>
 
       <!-- Popup mockup -->
@@ -56,42 +57,44 @@
         </div>
         <div class="mock-search">
           <span class="mock-glyph">✦</span>
-          <span class="mock-input">econ</span>
+          <span class="mock-input" id="mock-query">econ</span>
           <span class="mock-cursor"></span>
         </div>
         <div class="mock-divider">
           <span></span>
-          <small>3 results · "econ"</small>
+          <small id="mock-label">3 results &middot; "econ"</small>
           <span></span>
         </div>
-        <div class="mock-result">
-          <div class="mock-favicon">E</div>
-          <div class="mock-info">
-            <div class="mock-title">Introduction to Economics</div>
-            <div class="mock-meta">economics101.com · 2h ago</div>
+        <div id="mock-results">
+          <div class="mock-result">
+            <div class="mock-favicon">E</div>
+            <div class="mock-info">
+              <div class="mock-title">Introduction to Economics</div>
+              <div class="mock-meta">economics101.com &middot; 2h ago</div>
+            </div>
+            <button class="mock-restore">Restore</button>
           </div>
-          <button class="mock-restore">Restore</button>
-        </div>
-        <div class="mock-result">
-          <div class="mock-favicon">C</div>
-          <div class="mock-info">
-            <div class="mock-title">ECON 102: Midterm Guide</div>
-            <div class="mock-meta">canvas.ubc.ca · 1d ago</div>
+          <div class="mock-result">
+            <div class="mock-favicon">C</div>
+            <div class="mock-info">
+              <div class="mock-title">ECON 102: Midterm Guide</div>
+              <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
+            </div>
+            <button class="mock-restore">Restore</button>
           </div>
-          <button class="mock-restore">Restore</button>
-        </div>
-        <div class="mock-result">
-          <div class="mock-favicon">I</div>
-          <div class="mock-info">
-            <div class="mock-title">Supply and Demand, Investopedia</div>
-            <div class="mock-meta">investopedia.com · 3d ago</div>
+          <div class="mock-result">
+            <div class="mock-favicon">I</div>
+            <div class="mock-info">
+              <div class="mock-title">Supply and Demand, Investopedia</div>
+              <div class="mock-meta">investopedia.com &middot; 3d ago</div>
+            </div>
+            <button class="mock-restore">Restore</button>
           </div>
-          <button class="mock-restore">Restore</button>
         </div>
-        <div class="mock-reminder">
-          <span class="mock-reminder-glyph">◈</span>
+        <div class="mock-reminder" id="mock-reminder">
+          <span class="mock-reminder-glyph">&#9672;</span>
           <div class="mock-reminder-text">
-            <div class="mock-reminder-title">ECON Midterm · in 47m</div>
+            <div class="mock-reminder-title" id="mock-reminder-title">ECON Midterm &middot; in 47m</div>
             <div class="mock-reminder-sub">3 tabs ready</div>
           </div>
           <button class="mock-restore mock-restore-gold">Restore</button>
@@ -100,23 +103,21 @@
     </div>
   </section>
 
-  <!-- ── TRUST STRIP ── -->
+  <!-- TRUST STRIP -->
   <div class="trust-strip">
-    <span>⬡ Works entirely offline</span>
-    <span class="trust-sep">·</span>
-    <span>⬡ No account required</span>
-    <span class="trust-sep">·</span>
-    <span>⬡ Installs in 30 seconds</span>
-    <span class="trust-sep">·</span>
-    <span>⬡ Built for students &amp; researchers</span>
+    <span>&#11041; Works entirely offline</span>
+    <span class="trust-sep">&middot;</span>
+    <span>&#11041; No account required</span>
+    <span class="trust-sep">&middot;</span>
+    <span>&#11041; Your data never leaves your device</span>
+    <span class="trust-sep">&middot;</span>
+    <span>&#11041; Built for students &amp; researchers</span>
   </div>
 
-  <!-- ── DIVIDER ── -->
-  <div class="rule-divider">
-    <span>✦</span>
-  </div>
+  <!-- DIVIDER -->
+  <div class="rule-divider"><span>&#10022;</span></div>
 
-  <!-- ── HOW IT WORKS ── -->
+  <!-- HOW IT WORKS -->
   <section class="how" id="how">
     <div class="container">
       <div class="how-header">
@@ -165,12 +166,10 @@
     </div>
   </section>
 
-  <!-- ── DIVIDER ── -->
-  <div class="rule-divider">
-    <span>✦</span>
-  </div>
+  <!-- DIVIDER -->
+  <div class="rule-divider"><span>&#10022;</span></div>
 
-  <!-- ── THE PROBLEM ── -->
+  <!-- THE PROBLEM -->
   <section class="editorial">
     <div class="container container-narrow">
       <p class="section-eyebrow">Why Caddy exists</p>
@@ -187,15 +186,16 @@
         but a memory layer for your browser that knows what you need
         and when you need it.
       </p>
+      <div class="founder-note">
+        <p>Built by a student at Eric Hamber, because I kept losing my own research. This is the tool I needed.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ── DIVIDER ── -->
-  <div class="rule-divider">
-    <span>✦</span>
-  </div>
+  <!-- DIVIDER -->
+  <div class="rule-divider"><span>&#10022;</span></div>
 
-  <!-- ── COMPARISON ── -->
+  <!-- COMPARISON -->
   <section class="compare" id="compare">
     <div class="container">
       <p class="section-eyebrow">How it compares</p>
@@ -213,13 +213,13 @@
           <tbody>
             <tr>
               <td>Session Buddy</td>
-              <td class="c-yes">✓</td>
+              <td class="c-yes">&#10003;</td>
               <td class="c-no">No</td>
               <td class="c-no">No</td>
             </tr>
             <tr>
               <td>OneTab</td>
-              <td class="c-yes">✓</td>
+              <td class="c-yes">&#10003;</td>
               <td class="c-no">No</td>
               <td class="c-no">No</td>
             </tr>
@@ -231,9 +231,9 @@
             </tr>
             <tr class="caddyvault-row">
               <td><strong>Caddy</strong></td>
-              <td class="c-yes">✓</td>
-              <td class="c-yes">✓</td>
-              <td class="c-yes">✓</td>
+              <td class="c-yes">&#10003;</td>
+              <td class="c-yes">&#10003;</td>
+              <td class="c-yes">&#10003;</td>
             </tr>
           </tbody>
         </table>
@@ -241,12 +241,10 @@
     </div>
   </section>
 
-  <!-- ── DIVIDER ── -->
-  <div class="rule-divider">
-    <span>✦</span>
-  </div>
+  <!-- DIVIDER -->
+  <div class="rule-divider"><span>&#10022;</span></div>
 
-  <!-- ── PRICING ── -->
+  <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
       <p class="section-eyebrow">Pricing</p>
@@ -270,7 +268,7 @@
         </div>
 
         <div class="pricing-card pricing-featured">
-          <div class="plan-badge">Early bird · $4/mo</div>
+          <div class="plan-badge">First 500 &middot; $4/mo</div>
           <div class="plan-tier">Pro</div>
           <div class="plan-price">$4</div>
           <div class="plan-interval">per month</div>
@@ -291,7 +289,7 @@
     </div>
   </section>
 
-  <!-- ── WAITLIST CTA ── -->
+  <!-- WAITLIST CTA -->
   <section class="cta-section" id="waitlist">
     <div class="container container-narrow cta-inner">
       <h2 class="cta-headline">Stop losing your research.</h2>
@@ -300,14 +298,14 @@
         first to install when it ships, free, no strings.
       </p>
       <form class="waitlist-form" onsubmit="handleWaitlist(event)">
-        <input type="email" class="waitlist-input" placeholder="your@email.com" required>
+        <input type="email" class="waitlist-input" id="waitlist-email" placeholder="your@email.com" required>
         <button type="submit" class="btn-hero waitlist-btn">Request Early Access</button>
       </form>
-      <p class="cta-note">No credit card · No account · Data never leaves your browser</p>
+      <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;·&nbsp; No account &nbsp;·&nbsp; Data never leaves your browser</p>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-wordmark">Caddy.com</div>
@@ -316,7 +314,7 @@
         <a href="#">Terms</a>
         <a href="#">Support</a>
       </div>
-      <p class="footer-copy">© 2026 Caddy.com</p>
+      <p class="footer-copy">&#169; 2026 Caddy.com</p>
     </div>
   </footer>
 
