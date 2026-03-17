@@ -186,9 +186,6 @@
         but a memory layer for your browser that knows what you need
         and when you need it.
       </p>
-      <div class="founder-note">
-        <p>Built by a student at Eric Hamber, because I kept losing my own research. This is the tool I needed.</p>
-      </div>
     </div>
   </section>
 
@@ -297,9 +294,9 @@
         Caddy is in early access. Join the waitlist and you'll be
         first to install when it ships, free, no strings.
       </p>
-      <form class="waitlist-form" onsubmit="handleWaitlist(event)">
-        <input type="email" class="waitlist-input" id="waitlist-email" placeholder="your@email.com" required>
-        <button type="submit" class="btn-hero waitlist-btn">Request Early Access</button>
+      <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlist(event)">
+        <input type="email" class="waitlist-input" id="waitlist-email" name="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn-hero waitlist-btn" id="waitlist-btn">Request Early Access</button>
       </form>
       <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;·&nbsp; No account &nbsp;·&nbsp; Data never leaves your browser</p>
     </div>

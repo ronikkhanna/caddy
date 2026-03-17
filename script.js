@@ -97,25 +97,47 @@ function updateMockup() {
 
 setInterval(updateMockup, 3000);
 
-// Waitlist form
-function handleWaitlist(e) {
+// Waitlist form — submits to Formspree
+// To activate: sign up free at formspree.io, create a form, paste your endpoint below
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+async function handleWaitlist(e) {
   e.preventDefault();
   const input   = document.getElementById('waitlist-email');
-  const btn     = e.target.querySelector('.waitlist-btn');
+  const btn     = document.getElementById('waitlist-btn');
   const confirm = document.getElementById('waitlist-confirm');
   const email   = input.value.trim();
   if (!email) return;
 
-  // Save locally
-  const list = JSON.parse(localStorage.getItem('caddy_waitlist') || '[]');
-  if (!list.includes(email)) list.push(email);
-  localStorage.setItem('caddy_waitlist', JSON.stringify(list));
+  btn.textContent = 'Submitting...';
+  btn.disabled    = true;
 
-  btn.textContent = 'You\'re on the list';
-  btn.style.background = '#1a1a1a';
-  btn.disabled  = true;
-  input.disabled = true;
-  input.style.opacity = '0.4';
-  confirm.textContent = 'Got it. You\'ll hear from us first.';
-  confirm.style.color = 'var(--gold)';
+  try {
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      input.disabled        = true;
+      input.style.opacity   = '0.4';
+      btn.textContent       = "You're on the list";
+      btn.style.background  = '#1a1a1a';
+      confirm.textContent   = "Got it. You'll hear from us first.";
+      confirm.style.color   = 'var(--gold)';
+    } else {
+      btn.textContent  = 'Try again';
+      btn.disabled     = false;
+    }
+  } catch {
+    // Offline fallback: save locally
+    const list = JSON.parse(localStorage.getItem('caddy_waitlist') || '[]');
+    if (!list.includes(email)) list.push(email);
+    localStorage.setItem('caddy_waitlist', JSON.stringify(list));
+    btn.textContent      = "You're on the list";
+    btn.style.background = '#1a1a1a';
+    confirm.textContent  = "Got it. You'll hear from us first.";
+    confirm.style.color  = 'var(--gold)';
+  }
 }
