@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaddyVault — Your browser, remembered.</title>
+  <meta name="description" content="CaddyVault quietly archives your inactive tabs, then surfaces them the moment you need them. Search your vault. Restore in one click.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Caddy<em>Vault</em></a>
+      <ul class="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">A Chrome Extension</p>
+        <h1 class="hero-headline">
+          Your browser,<br>
+          <em>remembered.</em>
+        </h1>
+        <p class="hero-sub">
+          A golf caddy knows which club you need before you ask.
+          CaddyVault does the same for your tabs — quietly archiving
+          what you've left behind, surfacing it the moment you sit down to work.
+        </p>
+        <p class="hero-concrete">
+          It automatically archives inactive tabs after 24 hours, makes every one of them searchable,
+          and restores the right ones when your calendar says it's time.
+        </p>
+        <a href="#waitlist" class="btn-hero">Join the Early Access Waitlist</a>
+        <p class="hero-note">Free to start · No account · Everything stays in your browser</p>
+      </div>
+
+      <!-- Popup mockup -->
+      <div class="popup-mockup" aria-hidden="true">
+        <div class="mock-header">
+          <span class="mock-wordmark">Caddy<em>Vault</em></span>
+          <div class="mock-live">
+            <span class="mock-dot"></span>
+            <span>Live</span>
+          </div>
+        </div>
+        <div class="mock-search">
+          <span class="mock-glyph">✦</span>
+          <span class="mock-input">econ</span>
+          <span class="mock-cursor"></span>
+        </div>
+        <div class="mock-divider">
+          <span></span>
+          <small>3 results · "econ"</small>
+          <span></span>
+        </div>
+        <div class="mock-result">
+          <div class="mock-favicon">E</div>
+          <div class="mock-info">
+            <div class="mock-title">Introduction to Economics</div>
+            <div class="mock-meta">economics101.com · 2h ago</div>
+          </div>
+          <button class="mock-restore">Restore</button>
+        </div>
+        <div class="mock-result">
+          <div class="mock-favicon">C</div>
+          <div class="mock-info">
+            <div class="mock-title">ECON 102 — Midterm Guide</div>
+            <div class="mock-meta">canvas.ubc.ca · 1d ago</div>
+          </div>
+          <button class="mock-restore">Restore</button>
+        </div>
+        <div class="mock-result">
+          <div class="mock-favicon">I</div>
+          <div class="mock-info">
+            <div class="mock-title">Supply and Demand — Investopedia</div>
+            <div class="mock-meta">investopedia.com · 3d ago</div>
+          </div>
+          <button class="mock-restore">Restore</button>
+        </div>
+        <div class="mock-reminder">
+          <span class="mock-reminder-glyph">◈</span>
+          <div class="mock-reminder-text">
+            <div class="mock-reminder-title">ECON Midterm · in 47m</div>
+            <div class="mock-reminder-sub">3 tabs ready</div>
+          </div>
+          <button class="mock-restore mock-restore-gold">Restore</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust-strip">
+    <span>⬡ Works entirely offline</span>
+    <span class="trust-sep">·</span>
+    <span>⬡ No account required</span>
+    <span class="trust-sep">·</span>
+    <span>⬡ Installs in 30 seconds</span>
+    <span class="trust-sep">·</span>
+    <span>⬡ Built for students &amp; researchers</span>
+  </div>
+
+  <!-- ── DIVIDER ── -->
+  <div class="rule-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="how-header">
+        <p class="section-eyebrow">The Caddy</p>
+        <h2>Three things. Done quietly.</h2>
+      </div>
+
+      <div class="how-steps">
+
+        <div class="how-step">
+          <div class="step-number">I.</div>
+          <div class="step-body">
+            <h3>Archive</h3>
+            <p>
+              Tabs you haven't touched in 24 hours are moved to the Vault automatically.
+              Your browser stays clean. Nothing is lost — it's simply waiting.
+            </p>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="step-number">II.</div>
+          <div class="step-body">
+            <h3>Search</h3>
+            <p>
+              Open Caddy, type a word. Every tab archived in the last session —
+              last week, last month — surfaces instantly. Type <em>econ</em> and find three tabs
+              from your midterm prep. Type <em>climate</em> and your essay research reappears.
+            </p>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="step-number">III.</div>
+          <div class="step-body">
+            <h3>Restore</h3>
+            <p>
+              Your calendar says <em>English Essay at 5 pm.</em> Caddy reads it,
+              finds the matching tabs in your vault, and has a notification waiting
+              the moment you sit down. Press Restore. You're back in it.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIVIDER ── -->
+  <div class="rule-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- ── THE PROBLEM ── -->
+  <section class="editorial">
+    <div class="container container-narrow">
+      <p class="section-eyebrow">Why CaddyVault exists</p>
+      <blockquote class="editorial-pull">
+        "You spend an hour finding the perfect sources. Then life happens.
+        By the time you open your laptop for the study block,
+        every tab is gone and you're Googling the same things again."
+      </blockquote>
+      <p class="editorial-body">
+        Most productivity tools remind you to work. None of them put you
+        back in the exact place you left. Existing tab managers let you
+        <em>store</em> tabs — but none of them help you actually <em>reuse</em> them.
+        CaddyVault is built for that second step: not a workspace organizer,
+        but a memory layer for your browser that knows what you need
+        and when you need it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── DIVIDER ── -->
+  <div class="rule-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- ── COMPARISON ── -->
+  <section class="compare" id="compare">
+    <div class="container">
+      <p class="section-eyebrow">How it compares</p>
+      <h2 class="compare-headline">Other tools store tabs. None of them resurface them.</h2>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Archives tabs</th>
+              <th>Searchable vault</th>
+              <th>Calendar-triggered restore</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Session Buddy</td>
+              <td class="c-yes">✓</td>
+              <td class="c-no">—</td>
+              <td class="c-no">—</td>
+            </tr>
+            <tr>
+              <td>OneTab</td>
+              <td class="c-yes">✓</td>
+              <td class="c-no">—</td>
+              <td class="c-no">—</td>
+            </tr>
+            <tr>
+              <td>Reclaim AI</td>
+              <td class="c-no">—</td>
+              <td class="c-no">—</td>
+              <td class="c-partial">~</td>
+            </tr>
+            <tr class="caddyvault-row">
+              <td><strong>CaddyVault</strong></td>
+              <td class="c-yes">✓</td>
+              <td class="c-yes">✓</td>
+              <td class="c-yes">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIVIDER ── -->
+  <div class="rule-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- ── PRICING ── -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section-eyebrow">Pricing</p>
+      <h2 class="pricing-headline">Simple. Fair. Student-priced.</h2>
+
+      <div class="pricing-grid pricing-grid-two">
+
+        <div class="pricing-card">
+          <div class="plan-tier">Free</div>
+          <div class="plan-price">$0</div>
+          <div class="plan-interval">forever</div>
+          <ul class="plan-list">
+            <li>Up to 50 archived tabs</li>
+            <li>Full keyword search</li>
+            <li>One-click restore</li>
+            <li>Works entirely locally</li>
+            <li class="plan-dim">No calendar integration</li>
+            <li class="plan-dim">No smart reminders</li>
+          </ul>
+          <a href="#waitlist" class="btn-plan btn-plan-outline">Join Waitlist</a>
+        </div>
+
+        <div class="pricing-card pricing-featured">
+          <div class="plan-badge">Early bird · $4/mo</div>
+          <div class="plan-tier">Pro</div>
+          <div class="plan-price">$4</div>
+          <div class="plan-interval">per month</div>
+          <ul class="plan-list">
+            <li>Unlimited archived tabs</li>
+            <li>Full keyword search</li>
+            <li>One-click restore</li>
+            <li>Works entirely locally</li>
+            <li>Google Calendar integration</li>
+            <li>Smart reminders with tab auto-match</li>
+          </ul>
+          <a href="#waitlist" class="btn-plan btn-plan-gold">Join Waitlist — Pro</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-note">Early access is free. Pro pricing locks in at $4/mo for founding users — no credit card until launch.</p>
+    </div>
+  </section>
+
+  <!-- ── WAITLIST CTA ── -->
+  <section class="cta-section" id="waitlist">
+    <div class="container container-narrow cta-inner">
+      <h2 class="cta-headline">Stop losing your research.</h2>
+      <p class="cta-sub">
+        CaddyVault is in early access. Join the waitlist and you'll be
+        first to install when it ships — free, no strings.
+      </p>
+      <form class="waitlist-form" onsubmit="handleWaitlist(event)">
+        <input type="email" class="waitlist-input" placeholder="your@email.com" required>
+        <button type="submit" class="btn-hero waitlist-btn">Request Early Access</button>
+      </form>
+      <p class="cta-note">No credit card · No account · Data never leaves your browser</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-wordmark">Caddy<em>Vault</em></div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+      <p class="footer-copy">© 2026 CaddyVault</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
