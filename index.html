@@ -20,8 +20,20 @@
         <li><a href="#pricing">Pricing</a></li>
       </ul>
       <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#waitlist">Join Waitlist</a></li>
+    </ul>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -42,62 +54,136 @@
           It automatically archives inactive tabs after 24 hours, makes every one of them searchable,
           and restores the right ones when your calendar says it's time.
         </p>
-        <p class="hero-note">Free to start &nbsp;·&nbsp; No account &nbsp;·&nbsp; Everything stays in your browser</p>
+        <p class="hero-note">Free to start &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Everything stays in your browser</p>
         <a href="#waitlist" class="btn-hero">Join the Early Access Waitlist</a>
       </div>
 
-      <!-- Popup mockup -->
-      <div class="popup-mockup" aria-hidden="true">
-        <div class="mock-header">
-          <span class="mock-wordmark">Caddy</span>
-          <div class="mock-live">
-            <span class="mock-dot"></span>
-            <span>Live</span>
-          </div>
+      <!-- 3-Step Demo -->
+      <div class="demo-wrap">
+        <div class="demo-nav">
+          <button class="demo-dot active" data-step="0"></button>
+          <button class="demo-dot" data-step="1"></button>
+          <button class="demo-dot" data-step="2"></button>
         </div>
-        <div class="mock-search">
-          <span class="mock-glyph">✦</span>
-          <span class="mock-input" id="mock-query">econ</span>
-          <span class="mock-cursor"></span>
-        </div>
-        <div class="mock-divider">
-          <span></span>
-          <small id="mock-label">3 results &middot; "econ"</small>
-          <span></span>
-        </div>
-        <div id="mock-results">
-          <div class="mock-result">
-            <div class="mock-favicon">E</div>
-            <div class="mock-info">
-              <div class="mock-title">Introduction to Economics</div>
-              <div class="mock-meta">economics101.com &middot; 2h ago</div>
+
+        <!-- Stage 1: Archive -->
+        <div class="demo-stage active" id="demo-0">
+          <div class="stage-label">I. Archive</div>
+          <div class="browser-win">
+            <div class="browser-bar">
+              <div class="bwin-dots"><span></span><span></span><span></span></div>
+              <div class="bwin-url">canvas.ubc.ca</div>
+              <div class="bwin-exts">
+                <div class="caddy-ext-icon">CV</div>
+              </div>
             </div>
-            <button class="mock-restore">Restore</button>
-          </div>
-          <div class="mock-result">
-            <div class="mock-favicon">C</div>
-            <div class="mock-info">
-              <div class="mock-title">ECON 102: Midterm Guide</div>
-              <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
+            <div class="btabs" id="btabs">
+              <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
+              <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
+              <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
+              <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
             </div>
-            <button class="mock-restore">Restore</button>
-          </div>
-          <div class="mock-result">
-            <div class="mock-favicon">I</div>
-            <div class="mock-info">
-              <div class="mock-title">Supply and Demand, Investopedia</div>
-              <div class="mock-meta">investopedia.com &middot; 3d ago</div>
+            <div class="bwin-body">
+              <div class="archive-toast" id="archive-toast">
+                <span class="toast-glyph">&#9672;</span>
+                <span>3 inactive tabs archived to vault</span>
+              </div>
             </div>
-            <button class="mock-restore">Restore</button>
           </div>
+          <button class="demo-next-btn" id="next-0" data-goto="1">Search the vault &nbsp;&rarr;</button>
         </div>
-        <div class="mock-reminder" id="mock-reminder">
-          <span class="mock-reminder-glyph">&#9672;</span>
-          <div class="mock-reminder-text">
-            <div class="mock-reminder-title" id="mock-reminder-title">ECON Midterm &middot; in 47m</div>
-            <div class="mock-reminder-sub">3 tabs ready</div>
+
+        <!-- Stage 2: Search -->
+        <div class="demo-stage" id="demo-1">
+          <div class="stage-label">II. Search</div>
+          <div class="popup-mockup">
+            <div class="mock-header">
+              <span class="mock-wordmark">Caddy</span>
+              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
+            </div>
+            <div class="mock-search">
+              <span class="mock-glyph">&#10022;</span>
+              <span class="mock-input" id="mock-query">econ</span>
+              <span class="mock-cursor"></span>
+            </div>
+            <div class="mock-divider">
+              <span></span><small id="mock-label">3 results &middot; "econ"</small><span></span>
+            </div>
+            <div id="mock-results">
+              <div class="mock-result">
+                <div class="mock-favicon">E</div>
+                <div class="mock-info">
+                  <div class="mock-title">Introduction to Economics</div>
+                  <div class="mock-meta">economics101.com &middot; 2h ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+              <div class="mock-result">
+                <div class="mock-favicon">C</div>
+                <div class="mock-info">
+                  <div class="mock-title">ECON 102: Midterm Guide</div>
+                  <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+              <div class="mock-result">
+                <div class="mock-favicon">I</div>
+                <div class="mock-info">
+                  <div class="mock-title">Supply and Demand, Investopedia</div>
+                  <div class="mock-meta">investopedia.com &middot; 3d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+            </div>
           </div>
-          <button class="mock-restore mock-restore-gold">Restore</button>
+          <button class="demo-next-btn" id="next-1" data-goto="2">See smart restore &nbsp;&rarr;</button>
+        </div>
+
+        <!-- Stage 3: Calendar + Auto-popup + Restore -->
+        <div class="demo-stage" id="demo-2">
+          <div class="stage-label">III. Restore</div>
+          <div class="cal-mock">
+            <div class="cal-header">
+              <span class="cal-logo">&#128197;</span>
+              <span>Monday &middot; Today</span>
+            </div>
+            <div class="cal-body">
+              <div class="cal-row">
+                <div class="cal-time">2 PM</div>
+                <div class="cal-slot"></div>
+              </div>
+              <div class="cal-row cal-row-event">
+                <div class="cal-time cal-time-now">2:57</div>
+                <div class="cal-event-block">
+                  <div class="cal-event-title">ECON Midterm Study</div>
+                  <div class="cal-event-sub">3:00 &ndash; 5:00 PM</div>
+                  <div class="cal-countdown" id="cal-countdown">in 3 min</div>
+                </div>
+              </div>
+              <div class="cal-row">
+                <div class="cal-time">4 PM</div>
+                <div class="cal-slot"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Notification slides up -->
+          <div class="caddy-notif" id="caddy-notif">
+            <div class="notif-top">
+              <div class="notif-badge">CV</div>
+              <div class="notif-app">Caddy</div>
+              <div class="notif-time">now</div>
+            </div>
+            <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
+            <div class="notif-sub">3 matching tabs ready to restore</div>
+            <div class="notif-actions" id="notif-actions">
+              <button class="notif-btn-primary" id="restore-btn">Restore All</button>
+              <button class="notif-btn-ghost">Dismiss</button>
+            </div>
+            <div class="notif-success" id="notif-success">
+              <span class="success-check">&#10003;</span> 3 tabs restored
+            </div>
+          </div>
+          <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
         </div>
       </div>
     </div>
@@ -105,13 +191,13 @@
 
   <!-- TRUST STRIP -->
   <div class="trust-strip">
-    <span>&#11041; Works entirely offline</span>
-    <span class="trust-sep">&middot;</span>
-    <span>&#11041; No account required</span>
-    <span class="trust-sep">&middot;</span>
-    <span>&#11041; Your data never leaves your device</span>
-    <span class="trust-sep">&middot;</span>
-    <span>&#11041; Built for students &amp; researchers</span>
+    <span class="trust-item">&#11041; Works entirely offline</span>
+    <span class="trust-sep trust-item">&middot;</span>
+    <span class="trust-item">&#11041; No account required</span>
+    <span class="trust-sep trust-item">&middot;</span>
+    <span class="trust-item">&#11041; Your data never leaves your device</span>
+    <span class="trust-sep trust-item">&middot;</span>
+    <span class="trust-item">&#11041; Built for students &amp; researchers</span>
   </div>
 
   <!-- DIVIDER -->
@@ -122,12 +208,12 @@
     <div class="container">
       <div class="how-header">
         <p class="section-eyebrow">The Caddy</p>
-        <h2>Three things. Done quietly.</h2>
+        <h2 class="reveal-heading">Three things. Done quietly.</h2>
       </div>
 
       <div class="how-steps">
 
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="step-number">I.</div>
           <div class="step-body">
             <h3>Archive</h3>
@@ -138,7 +224,7 @@
           </div>
         </div>
 
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="step-number">II.</div>
           <div class="step-body">
             <h3>Search</h3>
@@ -150,7 +236,7 @@
           </div>
         </div>
 
-        <div class="how-step">
+        <div class="how-step reveal">
           <div class="step-number">III.</div>
           <div class="step-body">
             <h3>Restore</h3>
@@ -173,12 +259,12 @@
   <section class="editorial">
     <div class="container container-narrow">
       <p class="section-eyebrow">Why Caddy exists</p>
-      <blockquote class="editorial-pull">
+      <blockquote class="editorial-pull reveal">
         "You spend an hour finding the perfect sources. Then life happens.
         By the time you open your laptop for the study block,
         every tab is gone and you're Googling the same things again."
       </blockquote>
-      <p class="editorial-body">
+      <p class="editorial-body reveal">
         Most productivity tools remind you to work. None of them put you
         back in the exact place you left. Existing tab managers let you
         <em>store</em> tabs, but none of them help you actually <em>reuse</em> them.
@@ -196,8 +282,8 @@
   <section class="compare" id="compare">
     <div class="container">
       <p class="section-eyebrow">How it compares</p>
-      <h2 class="compare-headline">Other tools store tabs. None of them resurface them.</h2>
-      <div class="compare-table-wrap">
+      <h2 class="compare-headline reveal-heading">Other tools store tabs. None of them resurface them.</h2>
+      <div class="compare-table-wrap reveal">
         <table class="compare-table">
           <thead>
             <tr>
@@ -245,60 +331,43 @@
   <section class="pricing" id="pricing">
     <div class="container">
       <p class="section-eyebrow">Pricing</p>
-      <h2 class="pricing-headline">Simple. Fair. Student-priced.</h2>
+      <h2 class="pricing-headline reveal-heading">Simple. Fair. Student-priced.</h2>
 
-      <div class="pricing-grid pricing-grid-two">
-
-        <div class="pricing-card">
-          <div class="plan-tier">Free</div>
+      <div class="pricing-single">
+        <div class="pricing-card pricing-featured reveal">
+          <div class="plan-badge">Free during early access</div>
+          <div class="plan-tier">Everything. Free.</div>
           <div class="plan-price">$0</div>
-          <div class="plan-interval">forever</div>
-          <ul class="plan-list">
-            <li>Up to 50 archived tabs</li>
-            <li>Full keyword search</li>
-            <li>One-click restore</li>
-            <li>Works entirely locally</li>
-            <li class="plan-dim">No calendar integration</li>
-            <li class="plan-dim">No smart reminders</li>
-          </ul>
-          <a href="#waitlist" class="btn-plan btn-plan-outline">Join Waitlist</a>
-        </div>
-
-        <div class="pricing-card pricing-featured">
-          <div class="plan-badge">First 500 &middot; $4/mo</div>
-          <div class="plan-tier">Pro</div>
-          <div class="plan-price">$4</div>
-          <div class="plan-interval">per month</div>
+          <div class="plan-interval">no credit card, no account</div>
           <ul class="plan-list">
             <li>Unlimited archived tabs</li>
             <li>Full keyword search</li>
             <li>One-click restore</li>
-            <li>Works entirely locally</li>
             <li>Google Calendar integration</li>
             <li>Smart reminders with tab auto-match</li>
+            <li>Everything stays in your browser</li>
           </ul>
-          <a href="#waitlist" class="btn-plan btn-plan-gold">Join Waitlist (Pro)</a>
+          <a href="#waitlist" class="btn-plan btn-plan-gold">Join the Waitlist</a>
         </div>
-
       </div>
 
-      <p class="pricing-note">Early access is free. Pro pricing locks in at $4/mo for founding users. No credit card until launch.</p>
+      <p class="pricing-note">Free while we're in early access. We'll let you know before anything changes.</p>
     </div>
   </section>
 
   <!-- WAITLIST CTA -->
   <section class="cta-section" id="waitlist">
     <div class="container container-narrow cta-inner">
-      <h2 class="cta-headline">Stop losing your research.</h2>
-      <p class="cta-sub">
+      <h2 class="cta-headline reveal-heading">Stop losing your research.</h2>
+      <p class="cta-sub reveal">
         Caddy is in early access. Join the waitlist and you'll be
         first to install when it ships, free, no strings.
       </p>
-      <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlist(event)">
+      <form class="waitlist-form" id="waitlist-form">
         <input type="email" class="waitlist-input" id="waitlist-email" name="email" placeholder="your@email.com" required>
         <button type="submit" class="btn-hero waitlist-btn" id="waitlist-btn">Request Early Access</button>
       </form>
-      <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;·&nbsp; No account &nbsp;·&nbsp; Data never leaves your browser</p>
+      <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
     </div>
   </section>
 

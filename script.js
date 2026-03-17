@@ -1,82 +1,169 @@
-// Scroll-triggered reveal
+// ── Hamburger / Mobile Nav ──
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+}
+
+// ── Scroll-triggered reveal (with staggered children) ──
 const observer = new IntersectionObserver(
-  entries => entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-  }),
+  entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },
   { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
 );
 
-document.querySelectorAll('.how-step, .pricing-card, .editorial-pull, .editorial-body, .compare-table').forEach((el, i) => {
-  el.classList.add('reveal');
-  el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+// Stagger siblings within the same parent container
+document.querySelectorAll(
+  '.how-step, .pricing-card, .editorial-pull, .editorial-body, .compare-table-wrap, .reveal, .reveal-heading'
+).forEach((el, i) => {
+  if (!el.classList.contains('reveal') && !el.classList.contains('reveal-heading')) {
+    el.classList.add('reveal');
+  }
+  // Stagger delay based on sibling index within parent
+  const siblings = Array.from(el.parentElement.children).filter(
+    c => c.classList.contains('reveal') || c.classList.contains('reveal-heading') || c.classList.contains('how-step')
+  );
+  const sibIdx = siblings.indexOf(el);
+  if (sibIdx > 0) {
+    el.style.transitionDelay = `${sibIdx * 0.1}s`;
+  }
   observer.observe(el);
 });
 
-// Smooth scroll
+// ── Smooth scroll ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
     e.preventDefault();
-    t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-// Animated mockup: cycles through search states
-const mockStates = [
+// ── Demo Stage Controller ──
+let currentStage = 0;
+const stages = document.querySelectorAll('.demo-stage');
+const dots   = document.querySelectorAll('.demo-dot');
+
+function goToStage(n) {
+  stages[currentStage].classList.remove('active');
+  dots[currentStage].classList.remove('active');
+  currentStage = ((n % stages.length) + stages.length) % stages.length;
+  stages[currentStage].classList.add('active');
+  dots[currentStage].classList.add('active');
+  runStageAnimation(currentStage);
+}
+
+// Attach dot clicks
+dots.forEach(d => {
+  d.addEventListener('click', () => goToStage(parseInt(d.dataset.step)));
+});
+
+// Attach demo-next-btn clicks via data-goto attribute (replaces all inline onclick)
+document.querySelectorAll('.demo-next-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const goto = parseInt(btn.dataset.goto);
+    if (!isNaN(goto)) goToStage(goto);
+  });
+});
+
+// Attach restore button
+const restoreBtnEl = document.getElementById('restore-btn');
+if (restoreBtnEl) {
+  restoreBtnEl.addEventListener('click', handleDemoRestore);
+}
+
+function runStageAnimation(n) {
+  if (n === 0) runArchiveAnimation();
+  if (n === 1) runSearchAnimation();
+  if (n === 2) runRestoreAnimation();
+}
+
+// ── Stage 1: Archive ──
+function runArchiveAnimation() {
+  const btabs  = [0, 1, 2].map(i => document.getElementById('btab-' + i));
+  const toast  = document.getElementById('archive-toast');
+  const nextBtn = document.getElementById('next-0');
+
+  // Reset
+  btabs.forEach(t => { if (t) t.classList.remove('archiving-out'); });
+  if (toast)   toast.classList.remove('show');
+  if (nextBtn) nextBtn.classList.remove('visible');
+
+  // Archive each tab with stagger
+  btabs.forEach((tab, i) => {
+    setTimeout(() => { if (tab) tab.classList.add('archiving-out'); }, 700 + i * 450);
+  });
+
+  // Show toast then next button
+  setTimeout(() => { if (toast)   toast.classList.add('show'); },    700 + 3 * 450 + 200);
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 700 + 3 * 450 + 700);
+}
+
+// ── Stage 2: Search ──
+const searchStates = [
   {
     query: 'econ',
     label: '3 results \u00b7 "econ"',
-    reminder: 'ECON Midterm \u00b7 in 47m',
     results: [
-      { icon: 'E', title: 'Introduction to Economics', meta: 'economics101.com \u00b7 2h ago' },
-      { icon: 'C', title: 'ECON 102: Midterm Guide',   meta: 'canvas.ubc.ca \u00b7 1d ago' },
+      { icon: 'E', title: 'Introduction to Economics',    meta: 'economics101.com \u00b7 2h ago' },
+      { icon: 'C', title: 'ECON 102: Midterm Guide',      meta: 'canvas.ubc.ca \u00b7 1d ago' },
       { icon: 'I', title: 'Supply and Demand, Investopedia', meta: 'investopedia.com \u00b7 3d ago' },
     ]
   },
   {
     query: 'climate',
     label: '2 results \u00b7 "climate"',
-    reminder: 'ENV Essay \u00b7 in 2h',
     results: [
       { icon: 'N', title: 'NASA Climate Change Overview', meta: 'climate.nasa.gov \u00b7 4h ago' },
       { icon: 'G', title: 'IPCC AR6 Summary Report',      meta: 'ipcc.ch \u00b7 2d ago' },
-      { icon: 'B', title: 'Carbon Cycle, Khan Academy',   meta: 'khanacademy.org \u00b7 3d ago' },
-    ]
-  },
-  {
-    query: 'essay',
-    label: '3 results \u00b7 "essay"',
-    reminder: 'English 12 \u00b7 in 30m',
-    results: [
-      { icon: 'P', title: 'Thesis Writing: Purdue OWL',  meta: 'owl.purdue.edu \u00b7 1h ago' },
-      { icon: 'G', title: 'Google Docs \u2014 Draft 3',  meta: 'docs.google.com \u00b7 5h ago' },
-      { icon: 'J', title: 'JSTOR: Secondary Sources',    meta: 'jstor.org \u00b7 1d ago' },
+      { icon: 'K', title: 'Carbon Cycle, Khan Academy',   meta: 'khanacademy.org \u00b7 3d ago' },
     ]
   }
 ];
+let searchIdx = 0;
 
-let mockIndex = 0;
-
-function updateMockup() {
-  const state = mockStates[mockIndex];
+function runSearchAnimation() {
+  const state     = searchStates[searchIdx % searchStates.length];
+  searchIdx++;
   const queryEl   = document.getElementById('mock-query');
   const labelEl   = document.getElementById('mock-label');
   const resultsEl = document.getElementById('mock-results');
-  const reminderTitle = document.getElementById('mock-reminder-title');
+  const nextBtn   = document.getElementById('next-1');
 
+  if (nextBtn) nextBtn.classList.remove('visible');
   if (!queryEl) return;
 
-  // Fade out
-  resultsEl.style.opacity = '0';
-  resultsEl.style.transform = 'translateY(4px)';
+  resultsEl.style.opacity    = '0';
+  resultsEl.style.transform  = 'translateY(6px)';
   resultsEl.style.transition = 'opacity 0.3s, transform 0.3s';
 
-  setTimeout(() => {
-    queryEl.textContent = state.query;
-    labelEl.textContent = state.label;
-    reminderTitle.textContent = state.reminder;
+  // Type the query letter by letter
+  queryEl.textContent = '';
+  const chars = state.query.split('');
+  chars.forEach((ch, i) => {
+    setTimeout(() => { queryEl.textContent += ch; }, 300 + i * 120);
+  });
 
+  setTimeout(() => {
+    labelEl.textContent = state.label;
     resultsEl.innerHTML = state.results.map(r => `
       <div class="mock-result">
         <div class="mock-favicon">${r.icon}</div>
@@ -87,57 +174,100 @@ function updateMockup() {
         <button class="mock-restore">Restore</button>
       </div>
     `).join('');
-
-    // Fade in
-    resultsEl.style.opacity = '1';
+    resultsEl.style.opacity   = '1';
     resultsEl.style.transform = 'translateY(0)';
-    mockIndex = (mockIndex + 1) % mockStates.length;
-  }, 300);
+  }, 300 + chars.length * 120 + 200);
+
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 300 + chars.length * 120 + 700);
 }
 
-setInterval(updateMockup, 3000);
+// ── Stage 3: Calendar + Auto popup + Interactive restore ──
+function runRestoreAnimation() {
+  const notif      = document.getElementById('caddy-notif');
+  const countdown  = document.getElementById('cal-countdown');
+  const actions    = document.getElementById('notif-actions');
+  const success    = document.getElementById('notif-success');
+  const restoreBtn = document.getElementById('restore-btn');
+  const nextBtn    = document.querySelector('#demo-2 .demo-next-btn.demo-next-ghost');
 
-// Waitlist form — submits to Formspree
-// To activate: sign up free at formspree.io, create a form, paste your endpoint below
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  // Reset state
+  if (notif)      { notif.classList.remove('show'); }
+  if (countdown)  countdown.classList.remove('show');
+  if (success)    success.classList.remove('show');
+  if (actions)    actions.style.display = '';
+  if (restoreBtn) { restoreBtn.textContent = 'Restore All'; restoreBtn.disabled = false; }
+  if (nextBtn)    nextBtn.style.opacity = '0';
 
-async function handleWaitlist(e) {
-  e.preventDefault();
-  const input   = document.getElementById('waitlist-email');
-  const btn     = document.getElementById('waitlist-btn');
-  const confirm = document.getElementById('waitlist-confirm');
-  const email   = input.value.trim();
-  if (!email) return;
+  // Show countdown badge on calendar event
+  setTimeout(() => { if (countdown) countdown.classList.add('show'); }, 800);
 
-  btn.textContent = 'Submitting...';
-  btn.disabled    = true;
+  // Slide up notification
+  setTimeout(() => { if (notif) notif.classList.add('show'); }, 2000);
 
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email })
-    });
+  // Show start-over button
+  setTimeout(() => { if (nextBtn) nextBtn.style.opacity = '1'; }, 2500);
+}
 
-    if (res.ok) {
-      input.disabled        = true;
-      input.style.opacity   = '0.4';
-      btn.textContent       = "You're on the list";
-      btn.style.background  = '#1a1a1a';
-      confirm.textContent   = "Got it. You'll hear from us first.";
-      confirm.style.color   = 'var(--gold)';
-    } else {
-      btn.textContent  = 'Try again';
-      btn.disabled     = false;
+// Interactive restore button handler
+function handleDemoRestore() {
+  const actions    = document.getElementById('notif-actions');
+  const success    = document.getElementById('notif-success');
+  const restoreBtn = document.getElementById('restore-btn');
+
+  if (restoreBtn) { restoreBtn.textContent = 'Restoring...'; restoreBtn.disabled = true; }
+
+  setTimeout(() => {
+    if (actions) actions.style.display = 'none';
+    if (success) success.classList.add('show');
+  }, 600);
+}
+
+// Kick off initial animation
+runStageAnimation(0);
+
+// ── Waitlist form ──
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyknbnoq';
+
+const waitlistForm = document.getElementById('waitlist-form');
+if (waitlistForm) {
+  waitlistForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const input   = document.getElementById('waitlist-email');
+    const btn     = document.getElementById('waitlist-btn');
+    const confirm = document.getElementById('waitlist-confirm');
+    const email   = input.value.trim();
+    if (!email) return;
+
+    btn.textContent = 'Submitting...';
+    btn.disabled    = true;
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        input.disabled       = true;
+        input.style.opacity  = '0.4';
+        btn.textContent      = "You're on the list";
+        btn.style.background = '#1a1a1a';
+        confirm.textContent  = "Got it. You'll hear from us first.";
+        confirm.style.color  = 'var(--gold)';
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled    = false;
+      }
+    } catch {
+      const list = JSON.parse(localStorage.getItem('caddy_waitlist') || '[]');
+      if (!list.includes(email)) list.push(email);
+      localStorage.setItem('caddy_waitlist', JSON.stringify(list));
+      input.disabled       = true;
+      input.style.opacity  = '0.4';
+      btn.textContent      = "You're on the list";
+      btn.style.background = '#1a1a1a';
+      confirm.textContent  = "Got it. You'll hear from us first.";
+      confirm.style.color  = 'var(--gold)';
     }
-  } catch {
-    // Offline fallback: save locally
-    const list = JSON.parse(localStorage.getItem('caddy_waitlist') || '[]');
-    if (!list.includes(email)) list.push(email);
-    localStorage.setItem('caddy_waitlist', JSON.stringify(list));
-    btn.textContent      = "You're on the list";
-    btn.style.background = '#1a1a1a';
-    confirm.textContent  = "Got it. You'll hear from us first.";
-    confirm.style.color  = 'var(--gold)';
-  }
+  });
 }
