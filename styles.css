@@ -20,19 +20,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
-@keyframes gradient-drift {
-  0%   {
-    background-position: 0% 0%, 100% 100%, 50% 0%;
-  }
-  33%  {
-    background-position: 100% 20%, 0% 80%, 80% 50%;
-  }
-  66%  {
-    background-position: 30% 100%, 70% 0%, 20% 80%;
-  }
-  100% {
-    background-position: 0% 0%, 100% 100%, 50% 0%;
-  }
+@keyframes blob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(120px, 80px) scale(1.15); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-90px, 120px) scale(1.2); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(60px, -100px) scale(1.1); }
 }
 
 body {
@@ -40,14 +38,58 @@ body {
   font-size: 18px;
   line-height: 1.7;
   color: var(--text);
-  background-color: var(--white);
-  background-image:
-    radial-gradient(ellipse 70% 50% at var(--gx1, 30%) var(--gy1, -5%),  rgba(139, 92, 246, 0.13), transparent),
-    radial-gradient(ellipse 55% 45% at var(--gx2, 85%) var(--gy2, 55%),  rgba(219, 39, 119, 0.08), transparent),
-    radial-gradient(ellipse 50% 60% at var(--gx3, 15%) var(--gy3, 75%),  rgba(167, 70, 220, 0.07), transparent);
-  background-size: 200% 200%, 200% 200%, 200% 200%;
-  animation: gradient-drift 14s ease-in-out infinite;
+  background-color: #FDFCFF;
+  position: relative;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  background: rgba(139, 92, 246, 0.18);
+  top: -100px;
+  left: -100px;
+  animation: blob1 16s ease-in-out infinite;
+}
+
+body::after {
+  width: 500px;
+  height: 500px;
+  background: rgba(219, 39, 119, 0.13);
+  bottom: 10%;
+  right: -80px;
+  animation: blob2 18s ease-in-out infinite;
+}
+
+.blob3 {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+  width: 450px;
+  height: 450px;
+  background: rgba(167, 70, 230, 0.12);
+  top: 45%;
+  left: 30%;
+  animation: blob3 20s ease-in-out infinite;
+}
+
+/* Keep all content above blobs */
+body > *:not(.blob3) {
+  position: relative;
+  z-index: 1;
 }
 
 a { text-decoration: none; color: inherit; }
