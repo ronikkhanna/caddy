@@ -213,7 +213,7 @@ em { font-style: italic; }
 
 /* ── Hero ── */
 .hero {
-  padding: 90px 0 80px;
+  padding: 90px 0 48px;
   background-image:
     radial-gradient(ellipse 70% 60% at 60% 20%, rgba(100, 60, 200, 0.04), transparent);
 }
