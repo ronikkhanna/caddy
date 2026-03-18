@@ -294,6 +294,95 @@ em { font-style: italic; }
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s backwards;
 }
 
+/* ── Typewriter ── */
+.typewriter-wrap {
+  margin-bottom: 20px;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
+}
+
+.typewriter-text {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.2px;
+}
+
+.typewriter-cursor {
+  font-size: 15px;
+  color: var(--gold);
+  animation: tw-blink 0.9s step-end infinite;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Mock Groups Strip ── */
+.mock-groups-strip {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(195,158,55,0.08);
+}
+.mock-groups-strip::-webkit-scrollbar { display: none; }
+
+.mock-group-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: rgba(124,58,237,0.08);
+  border: 1px solid rgba(124,58,237,0.22);
+  border-radius: 7px;
+  padding: 6px 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.mock-group-btn-active {
+  background: rgba(124,58,237,0.2);
+  border-color: rgba(124,58,237,0.5);
+  box-shadow: 0 0 10px rgba(124,58,237,0.2);
+}
+
+.mock-diamond {
+  font-size: 13px;
+  color: #9F67FF;
+  line-height: 1;
+}
+
+.mock-group-name {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(159,103,255,0.85);
+  white-space: nowrap;
+  font-family: -apple-system, sans-serif;
+}
+
+.mock-group-count {
+  font-size: 8px;
+  color: rgba(237,232,213,0.28);
+  font-family: -apple-system, sans-serif;
+}
+
+.mock-groups-cta {
+  text-align: center;
+  font-size: 11px;
+  color: #9F67FF;
+  padding: 8px 12px 10px;
+  font-style: italic;
+  animation: notif-pulse 2s ease-in-out infinite;
+}
+
 /* ── CTA Button with shimmer ── */
 .btn-hero {
   display: inline-block;

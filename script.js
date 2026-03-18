@@ -92,8 +92,9 @@ if (restoreBtnEl) {
 
 function runStageAnimation(n) {
   if (n === 0) runArchiveAnimation();
-  if (n === 1) runSearchAnimation();
-  if (n === 2) runRestoreAnimation();
+  if (n === 1) runGroupsAnimation();
+  if (n === 2) runSearchAnimation();
+  if (n === 3) runRestoreAnimation();
 }
 
 // ── Stage 1: Archive ──
@@ -117,7 +118,25 @@ function runArchiveAnimation() {
   setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 700 + 3 * 450 + 700);
 }
 
-// ── Stage 2: Search ──
+// ── Stage 2: Smart Groups ──
+function runGroupsAnimation() {
+  const buttons = document.querySelectorAll('.mock-group-btn');
+  const cta     = document.getElementById('mock-restore-group');
+  const nextBtn = document.getElementById('next-1');
+
+  if (nextBtn) nextBtn.classList.remove('visible');
+
+  // Pulse the active button
+  buttons.forEach(b => b.classList.remove('mock-group-btn-active'));
+  setTimeout(() => {
+    const active = document.querySelector('.mock-group-btn:nth-child(3)');
+    if (active) active.classList.add('mock-group-btn-active');
+  }, 500);
+
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 1200);
+}
+
+// ── Stage 3: Search ──
 const searchStates = [
   {
     query: 'econ',
@@ -146,7 +165,7 @@ function runSearchAnimation() {
   const queryEl   = document.getElementById('mock-query');
   const labelEl   = document.getElementById('mock-label');
   const resultsEl = document.getElementById('mock-results');
-  const nextBtn   = document.getElementById('next-1');
+  const nextBtn   = document.getElementById('next-2');
 
   if (nextBtn) nextBtn.classList.remove('visible');
   if (!queryEl) return;
@@ -188,7 +207,7 @@ function runRestoreAnimation() {
   const actions    = document.getElementById('notif-actions');
   const success    = document.getElementById('notif-success');
   const restoreBtn = document.getElementById('restore-btn');
-  const nextBtn    = document.querySelector('#demo-2 .demo-next-btn.demo-next-ghost');
+  const nextBtn    = document.querySelector('#demo-3 .demo-next-btn.demo-next-ghost');
 
   // Reset state
   if (notif)      { notif.classList.remove('show'); }
@@ -224,6 +243,48 @@ function handleDemoRestore() {
 
 // Kick off initial animation
 runStageAnimation(0);
+
+// ── Typewriter ──
+const typewriterEl = document.getElementById('typewriter');
+const tw_lines = [
+  'Tabs you forget get archived automatically.',
+  'Search anything. Find it in seconds.',
+  'Purple diamonds group your tabs by topic.',
+  'Your calendar triggers the restore for you.',
+  'Everything stays in your browser. Always.',
+];
+let tw_line = 0;
+let tw_char = 0;
+let tw_deleting = false;
+let tw_timer;
+
+function typewriterTick() {
+  if (!typewriterEl) return;
+  const line = tw_lines[tw_line];
+
+  if (!tw_deleting) {
+    tw_char++;
+    typewriterEl.textContent = line.slice(0, tw_char);
+    if (tw_char === line.length) {
+      tw_deleting = true;
+      tw_timer = setTimeout(typewriterTick, 2200);
+      return;
+    }
+    tw_timer = setTimeout(typewriterTick, 42);
+  } else {
+    tw_char--;
+    typewriterEl.textContent = line.slice(0, tw_char);
+    if (tw_char === 0) {
+      tw_deleting = false;
+      tw_line = (tw_line + 1) % tw_lines.length;
+      tw_timer = setTimeout(typewriterTick, 400);
+      return;
+    }
+    tw_timer = setTimeout(typewriterTick, 22);
+  }
+}
+
+setTimeout(typewriterTick, 1400);
 
 // ── Waitlist form ──
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyknbnoq';

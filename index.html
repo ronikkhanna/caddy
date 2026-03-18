@@ -55,6 +55,9 @@
           and restores the right ones when your calendar says it's time.
         </p>
         <p class="hero-note">Free to start &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Everything stays in your browser</p>
+        <div class="typewriter-wrap">
+          <span class="typewriter-text" id="typewriter"></span><span class="typewriter-cursor">|</span>
+        </div>
         <a href="#waitlist" class="btn-hero">Join the Early Access Waitlist</a>
       </div>
 
@@ -64,6 +67,7 @@
           <button class="demo-dot active" data-step="0"></button>
           <button class="demo-dot" data-step="1"></button>
           <button class="demo-dot" data-step="2"></button>
+          <button class="demo-dot" data-step="3"></button>
         </div>
 
         <!-- Stage 1: Archive -->
@@ -90,11 +94,66 @@
               </div>
             </div>
           </div>
-          <button class="demo-next-btn" id="next-0" data-goto="1">Search the vault &nbsp;&rarr;</button>
+          <button class="demo-next-btn" id="next-0" data-goto="1">See smart groups &nbsp;&rarr;</button>
         </div>
 
-        <!-- Stage 2: Search -->
+        <!-- Stage 2: Smart Groups -->
         <div class="demo-stage" id="demo-1">
+          <div class="stage-label">II. Smart Groups</div>
+          <div class="popup-mockup">
+            <div class="mock-header">
+              <span class="mock-wordmark">Caddy</span>
+              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
+            </div>
+            <!-- Groups strip -->
+            <div class="mock-groups-strip">
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Uni</span>
+                <span class="mock-group-count">4 tabs</span>
+              </button>
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Research</span>
+                <span class="mock-group-count">3 tabs</span>
+              </button>
+              <button class="mock-group-btn mock-group-btn-active">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">YouTube</span>
+                <span class="mock-group-count">2 tabs</span>
+              </button>
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Social</span>
+                <span class="mock-group-count">5 tabs</span>
+              </button>
+            </div>
+            <div class="mock-divider">
+              <span></span><small>Tap a group to restore all at once</small><span></span>
+            </div>
+            <div class="mock-result">
+              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
+              <div class="mock-info">
+                <div class="mock-title">Study With Me — 3hr Pomodoro</div>
+                <div class="mock-meta">youtube.com &middot; 1d ago</div>
+              </div>
+              <button class="mock-restore">Restore</button>
+            </div>
+            <div class="mock-result">
+              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
+              <div class="mock-info">
+                <div class="mock-title">Lo-fi Hip Hop Radio</div>
+                <div class="mock-meta">youtube.com &middot; 2d ago</div>
+              </div>
+              <button class="mock-restore">Restore</button>
+            </div>
+            <div class="mock-groups-cta" id="mock-restore-group">Restore YouTube group</div>
+          </div>
+          <button class="demo-next-btn" id="next-1" data-goto="2">Search the vault &nbsp;&rarr;</button>
+        </div>
+
+        <!-- Stage 3: Search -->
+        <div class="demo-stage" id="demo-2">
           <div class="stage-label">II. Search</div>
           <div class="popup-mockup">
             <div class="mock-header">
@@ -136,12 +195,12 @@
               </div>
             </div>
           </div>
-          <button class="demo-next-btn" id="next-1" data-goto="2">See smart restore &nbsp;&rarr;</button>
+          <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
         </div>
 
-        <!-- Stage 3: Calendar + Auto-popup + Restore -->
-        <div class="demo-stage" id="demo-2">
-          <div class="stage-label">III. Restore</div>
+        <!-- Stage 4: Calendar + Auto-popup + Restore -->
+        <div class="demo-stage" id="demo-3">
+          <div class="stage-label">IV. Restore</div>
           <div class="cal-mock">
             <div class="cal-header">
               <span class="cal-logo">&#128197;</span>
@@ -185,6 +244,7 @@
           </div>
           <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
         </div>
+
       </div>
     </div>
   </section>
