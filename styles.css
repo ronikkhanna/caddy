@@ -1678,6 +1678,27 @@ em { font-style: italic; }
     -webkit-overflow-scrolling: touch;
   }
 
+  .compare-table th {
+    font-size: 10px;
+    padding: 8px 8px;
+    letter-spacing: 0.2px;
+  }
+
+  .compare-table td {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+
+  .compare-table td:first-child {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Shorten long header text on mobile */
+  .compare-table th:nth-child(2) { font-size: 9px; }
+  .compare-table th:nth-child(3) { font-size: 9px; }
+  .compare-table th:nth-child(4) { font-size: 9px; }
+
   .pricing-card {
     padding: 28px 20px;
   }
