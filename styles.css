@@ -39,8 +39,6 @@ body {
   line-height: 1.7;
   color: var(--text);
   background-color: #FDFCFF;
-  position: relative;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
