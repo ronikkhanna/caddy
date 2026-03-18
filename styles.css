@@ -85,7 +85,7 @@ body::after {
 }
 
 /* Keep all content above blobs */
-body > *:not(.blob3) {
+body > *:not(.blob3):not(.mobile-nav) {
   position: relative;
   z-index: 1;
 }
