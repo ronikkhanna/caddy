@@ -1101,6 +1101,7 @@ em { font-style: italic; }
   position: relative;
   width: 400px;
   flex-shrink: 0;
+  margin: 0 auto;
   animation: hero-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
 }
 
@@ -1129,20 +1130,19 @@ em { font-style: italic; }
 
 .demo-stage {
   display: none;
-  height: 400px;
+  height: 420px;
 }
 
 .demo-stage.active {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 400px;
+  align-items: stretch;
+  height: 420px;
   animation: stage-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .demo-stage.active > * {
   width: 100%;
-  max-width: 360px;
 }
 
 @keyframes stage-in {
@@ -1314,7 +1314,6 @@ em { font-style: italic; }
 .demo-stage .popup-mockup {
   animation: none;
   width: 100%;
-  max-width: 360px;
 }
 
 /* ── Calendar Mock (Stage 3) — dark gold theme ── */
@@ -1598,10 +1597,9 @@ em { font-style: italic; }
   }
 
   .demo-wrap {
-    width: 100%;
-    max-width: 400px;
+    width: min(400px, calc(100vw - 48px));
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
   }
 
   .how-steps {
@@ -1693,20 +1691,5 @@ em { font-style: italic; }
 
   .pricing-card {
     padding: 24px 16px;
-  }
-
-  .demo-wrap {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .demo-stage.active > * {
-    max-width: 100%;
-  }
-
-  .demo-stage .popup-mockup {
-    max-width: 100%;
   }
 }
