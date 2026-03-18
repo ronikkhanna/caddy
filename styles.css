@@ -474,7 +474,7 @@ em { font-style: italic; }
   flex-wrap: wrap;
   gap: 10px 20px;
   padding: 14px 32px;
-  background: var(--off-white);
+  background: rgba(245, 242, 249, 0.5);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   font-size: 13px;
@@ -803,7 +803,7 @@ em { font-style: italic; }
 /* ── Editorial section ── */
 .editorial {
   padding: 96px 0;
-  background: var(--off-white);
+  background: rgba(245, 242, 249, 0.5);
   background-image: radial-gradient(ellipse 80% 60% at 50% 50%, var(--purple-hint), transparent);
 }
 
@@ -901,8 +901,7 @@ em { font-style: italic; }
 /* ── Pricing ── */
 .pricing {
   padding: 96px 0;
-  background: var(--off-white);
-  background-image: radial-gradient(ellipse 80% 60% at 50% 50%, var(--purple-hint), transparent);
+  background: rgba(245, 242, 249, 0.45);
 }
 
 .pricing-headline {
@@ -927,7 +926,8 @@ em { font-style: italic; }
 }
 
 .pricing-card {
-  background: var(--white);
+  background: rgba(253, 252, 255, 0.7);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   padding: 36px 32px;
   position: relative;
