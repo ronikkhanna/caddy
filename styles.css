@@ -1129,14 +1129,14 @@ em { font-style: italic; }
 
 .demo-stage {
   display: none;
-  min-height: 360px;
+  height: 400px;
 }
 
 .demo-stage.active {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 360px;
+  align-items: stretch;
+  height: 400px;
   animation: stage-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1312,6 +1312,9 @@ em { font-style: italic; }
 /* ── Popup mockup inside stage 2 ── */
 .demo-stage .popup-mockup {
   animation: none;
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
 }
 
 /* ── Calendar Mock (Stage 3) — dark gold theme ── */
@@ -1596,7 +1599,7 @@ em { font-style: italic; }
 
   .demo-wrap {
     width: 100%;
-    max-width: 440px;
+    max-width: 400px;
     margin: 0 auto;
   }
 
@@ -1693,7 +1696,7 @@ em { font-style: italic; }
 
   .demo-wrap {
     width: 100%;
-    max-width: 340px;
+    max-width: 400px;
     margin: 0 auto;
   }
 }
