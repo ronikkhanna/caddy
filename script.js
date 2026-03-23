@@ -76,20 +76,8 @@ dots.forEach(d => {
   d.addEventListener('click', () => goToStage(parseInt(d.dataset.step)));
 });
 
-// Stage 0 button toggles: first click starts demo, second click (after animation) advances
-const next0 = document.getElementById('next-0');
-if (next0) {
-  next0.addEventListener('click', () => {
-    if (next0.dataset.ready === 'true') {
-      goToStage(1);
-    } else {
-      startFullDemo();
-    }
-  });
-}
-
-// All other next buttons use data-goto
-document.querySelectorAll('.demo-next-btn:not(#next-0)').forEach(btn => {
+// Attach demo-next-btn clicks via data-goto attribute (replaces all inline onclick)
+document.querySelectorAll('.demo-next-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const goto = parseInt(btn.dataset.goto);
     if (!isNaN(goto)) goToStage(goto);
@@ -109,174 +97,90 @@ function runStageAnimation(n) {
   if (n === 3) runRestoreAnimation();
 }
 
-// ── Stage 0: Archive — reset to static state ──
+// ── Stage 1: Archive ──
 function runArchiveAnimation() {
-  const btabs   = [0, 1, 2].map(i => document.getElementById('btab-' + i));
-  const toast   = document.getElementById('archive-toast');
+  const btabs  = [0, 1, 2].map(i => document.getElementById('btab-' + i));
+  const toast  = document.getElementById('archive-toast');
   const nextBtn = document.getElementById('next-0');
 
+  // Reset
   btabs.forEach(t => { if (t) t.classList.remove('archiving-out'); });
-  if (toast) toast.classList.remove('show');
-  if (nextBtn) {
-    nextBtn.dataset.ready = 'false';
-    nextBtn.textContent   = 'Start demo';
-    nextBtn.disabled      = false;
-  }
-}
+  if (toast)   toast.classList.remove('show');
+  if (nextBtn) nextBtn.classList.remove('visible');
 
-// "Start demo" — runs archive animation then reveals Next button
-function startFullDemo() {
-  const btabs   = [0, 1, 2].map(i => document.getElementById('btab-' + i));
-  const toast   = document.getElementById('archive-toast');
-  const nextBtn = document.getElementById('next-0');
-
-  if (nextBtn) { nextBtn.disabled = true; }
-
+  // Archive each tab with stagger
   btabs.forEach((tab, i) => {
-    setTimeout(() => { if (tab) tab.classList.add('archiving-out'); }, 400 + i * 400);
+    setTimeout(() => { if (tab) tab.classList.add('archiving-out'); }, 700 + i * 450);
   });
 
-  const afterArchive = 400 + 3 * 400 + 300;
-  setTimeout(() => { if (toast) toast.classList.add('show'); }, afterArchive);
-
-  // Re-enable next button after archive finishes
-  setTimeout(() => {
-    if (nextBtn) {
-      nextBtn.innerHTML     = 'See smart groups &nbsp;&rarr;';
-      nextBtn.dataset.ready = 'true';
-      nextBtn.disabled      = false;
-    }
-  }, afterArchive + 600);
+  // Show toast then next button
+  setTimeout(() => { if (toast)   toast.classList.add('show'); },    700 + 3 * 450 + 200);
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 700 + 3 * 450 + 700);
 }
 
-// ── Stage 1: Smart Groups — cycle groups and update results ──
-const groupData = [
-  {
-    name: 'Uni', count: '4 tabs',
-    results: [
-      { icon: 'C', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'ECON 102: Midterm Guide',     meta: 'canvas.ubc.ca · 1d ago' },
-      { icon: 'L', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'UBC Library Portal',           meta: 'library.ubc.ca · 3h ago' },
-    ]
-  },
-  {
-    name: 'Research', count: '3 tabs',
-    results: [
-      { icon: 'N', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'NASA Climate Change Overview', meta: 'climate.nasa.gov · 4h ago' },
-      { icon: 'I', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'IPCC AR6 Summary Report',      meta: 'ipcc.ch · 2d ago' },
-    ]
-  },
-  {
-    name: 'YouTube', count: '2 tabs',
-    results: [
-      { icon: 'Y', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'Study With Me — 3hr Pomodoro', meta: 'youtube.com · 1d ago' },
-      { icon: 'Y', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'Lo-fi Hip Hop Radio',           meta: 'youtube.com · 2d ago' },
-    ]
-  },
-  {
-    name: 'Social', count: '5 tabs',
-    results: [
-      { icon: 'R', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'r/MachineLearning',            meta: 'reddit.com · 6h ago' },
-      { icon: 'I', bg: 'rgba(195,158,55,0.12)', col: '#C39E37', title: 'Instagram',                    meta: 'instagram.com · 1h ago' },
-    ]
-  },
-];
-
-function updateGroupResults(idx) {
-  const group     = groupData[idx];
-  const resultsEl = document.getElementById('mock-group-results');
-  const ctaEl     = document.getElementById('mock-restore-group');
-  const labelEl   = document.getElementById('mock-group-label');
-
-  if (resultsEl) {
-    resultsEl.style.opacity   = '0';
-    resultsEl.style.transform = 'translateY(4px)';
-    resultsEl.style.transition = 'opacity 0.2s, transform 0.2s';
-    setTimeout(() => {
-      resultsEl.innerHTML = group.results.map(r => `
-        <div class="mock-result">
-          <div class="mock-favicon" style="background:${r.bg};color:${r.col}">${r.icon}</div>
-          <div class="mock-info">
-            <div class="mock-title">${r.title}</div>
-            <div class="mock-meta">${r.meta}</div>
-          </div>
-          <button class="mock-restore">Restore</button>
-        </div>
-      `).join('');
-      resultsEl.style.opacity   = '1';
-      resultsEl.style.transform = 'translateY(0)';
-    }, 200);
-  }
-  if (ctaEl)   ctaEl.textContent = `Restore ${group.name} group`;
-  if (labelEl) labelEl.textContent = `${group.count} in ${group.name}`;
-}
-
+// ── Stage 2: Smart Groups ──
 function runGroupsAnimation() {
   const buttons = document.querySelectorAll('.mock-group-btn');
+  const cta     = document.getElementById('mock-restore-group');
   const nextBtn = document.getElementById('next-1');
 
+  if (nextBtn) nextBtn.classList.remove('visible');
+
+  // Pulse the active button
   buttons.forEach(b => b.classList.remove('mock-group-btn-active'));
+  setTimeout(() => {
+    const active = document.querySelector('.mock-group-btn:nth-child(3)');
+    if (active) active.classList.add('mock-group-btn-active');
+  }, 500);
 
-  // Sequence: Uni (0) → YouTube (2) → Research (1) → YouTube (2)
-  const sequence = [0, 2, 1, 2];
-  let step = 0;
-
-  function activateNext() {
-    buttons.forEach(b => b.classList.remove('mock-group-btn-active'));
-    if (step < sequence.length) {
-      const idx = sequence[step];
-      buttons[idx].classList.add('mock-group-btn-active');
-      updateGroupResults(idx);
-      step++;
-      if (step < sequence.length) {
-        setTimeout(activateNext, 1000);
-      }
-    }
-  }
-
-  setTimeout(activateNext, 400);
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 1200);
 }
 
-// ── Stage 2: Search — runs both econ + climate in one session ──
+// ── Stage 3: Search ──
 const searchStates = [
   {
     query: 'econ',
     label: '3 results \u00b7 "econ"',
     results: [
-      { icon: 'E', title: 'Introduction to Economics',       meta: 'economics101.com \u00b7 2h ago' },
-      { icon: 'C', title: 'ECON 102: Midterm Guide',         meta: 'canvas.ubc.ca \u00b7 1d ago' },
+      { icon: 'E', title: 'Introduction to Economics',    meta: 'economics101.com \u00b7 2h ago' },
+      { icon: 'C', title: 'ECON 102: Midterm Guide',      meta: 'canvas.ubc.ca \u00b7 1d ago' },
       { icon: 'I', title: 'Supply and Demand, Investopedia', meta: 'investopedia.com \u00b7 3d ago' },
     ]
   },
   {
     query: 'climate',
-    label: '3 results \u00b7 "climate"',
+    label: '2 results \u00b7 "climate"',
     results: [
       { icon: 'N', title: 'NASA Climate Change Overview', meta: 'climate.nasa.gov \u00b7 4h ago' },
-      { icon: 'I', title: 'IPCC AR6 Summary Report',      meta: 'ipcc.ch \u00b7 2d ago' },
+      { icon: 'G', title: 'IPCC AR6 Summary Report',      meta: 'ipcc.ch \u00b7 2d ago' },
       { icon: 'K', title: 'Carbon Cycle, Khan Academy',   meta: 'khanacademy.org \u00b7 3d ago' },
     ]
   }
 ];
+let searchIdx = 0;
 
-function typeSearchState(state, offset) {
+function runSearchAnimation() {
+  const state     = searchStates[searchIdx % searchStates.length];
+  searchIdx++;
   const queryEl   = document.getElementById('mock-query');
   const labelEl   = document.getElementById('mock-label');
   const resultsEl = document.getElementById('mock-results');
-  if (!queryEl) return offset;
+  const nextBtn   = document.getElementById('next-2');
 
-  // Clear + type
-  setTimeout(() => {
-    resultsEl.style.opacity   = '0';
-    resultsEl.style.transform = 'translateY(6px)';
-    queryEl.textContent = '';
-  }, offset);
+  if (nextBtn) nextBtn.classList.remove('visible');
+  if (!queryEl) return;
 
+  resultsEl.style.opacity    = '0';
+  resultsEl.style.transform  = 'translateY(6px)';
+  resultsEl.style.transition = 'opacity 0.3s, transform 0.3s';
+
+  // Type the query letter by letter
+  queryEl.textContent = '';
   const chars = state.query.split('');
   chars.forEach((ch, i) => {
-    setTimeout(() => { queryEl.textContent += ch; }, offset + 250 + i * 110);
+    setTimeout(() => { queryEl.textContent += ch; }, 300 + i * 120);
   });
 
-  const showAt = offset + 250 + chars.length * 110 + 200;
   setTimeout(() => {
     labelEl.textContent = state.label;
     resultsEl.innerHTML = state.results.map(r => `
@@ -289,48 +193,38 @@ function typeSearchState(state, offset) {
         <button class="mock-restore">Restore</button>
       </div>
     `).join('');
-    resultsEl.style.transition = 'opacity 0.3s, transform 0.3s';
     resultsEl.style.opacity   = '1';
     resultsEl.style.transform = 'translateY(0)';
-  }, showAt);
+  }, 300 + chars.length * 120 + 200);
 
-  return showAt;
+  setTimeout(() => { if (nextBtn) nextBtn.classList.add('visible'); }, 300 + chars.length * 120 + 700);
 }
 
-function runSearchAnimation() {
-  // Run econ, then climate, then show next
-  const end0 = typeSearchState(searchStates[0], 0);
-  typeSearchState(searchStates[1], end0 + 1400);
-}
-
-// ── Stage 3: Browser → corner notif → expand to full ──
+// ── Stage 3: Calendar + Auto popup + Interactive restore ──
 function runRestoreAnimation() {
-  const cornerNotif = document.getElementById('corner-notif');
-  const notif       = document.getElementById('caddy-notif');
-  const actions     = document.getElementById('notif-actions');
-  const success     = document.getElementById('notif-success');
-  const restoreBtn  = document.getElementById('restore-btn');
-  const nextBtn     = document.querySelector('#demo-3 .demo-next-btn.demo-next-ghost');
+  const notif      = document.getElementById('caddy-notif');
+  const countdown  = document.getElementById('cal-countdown');
+  const actions    = document.getElementById('notif-actions');
+  const success    = document.getElementById('notif-success');
+  const restoreBtn = document.getElementById('restore-btn');
+  const nextBtn    = document.querySelector('#demo-3 .demo-next-btn.demo-next-ghost');
 
-  // Reset
-  if (cornerNotif) cornerNotif.classList.remove('show', 'dismiss');
-  if (notif)       notif.classList.remove('show', 'expanded');
-  if (success)     success.classList.remove('show');
-  if (actions)     actions.style.display = '';
-  if (restoreBtn)  { restoreBtn.textContent = 'Restore All'; restoreBtn.disabled = false; }
+  // Reset state
+  if (notif)      { notif.classList.remove('show'); }
+  if (countdown)  countdown.classList.remove('show');
+  if (success)    success.classList.remove('show');
+  if (actions)    actions.style.display = '';
+  if (restoreBtn) { restoreBtn.textContent = 'Restore All'; restoreBtn.disabled = false; }
+  if (nextBtn)    nextBtn.style.opacity = '0';
 
-  // Step 1: corner notification pops from CV icon
-  setTimeout(() => { if (cornerNotif) cornerNotif.classList.add('show'); }, 900);
+  // Show countdown badge on calendar event
+  setTimeout(() => { if (countdown) countdown.classList.add('show'); }, 800);
 
-  // Step 2: after ~1.5 seconds, dismiss corner and show full notif as pill
-  setTimeout(() => {
-    if (cornerNotif) cornerNotif.classList.add('dismiss');
-    if (notif) notif.classList.add('show');
-  }, 2400);
+  // Slide up notification
+  setTimeout(() => { if (notif) notif.classList.add('show'); }, 2000);
 
-  // Step 3: expand pill to full notification
-  setTimeout(() => { if (notif) notif.classList.add('expanded'); }, 2850);
-
+  // Show start-over button
+  setTimeout(() => { if (nextBtn) nextBtn.style.opacity = '1'; }, 2500);
 }
 
 // Interactive restore button handler
@@ -347,7 +241,7 @@ function handleDemoRestore() {
   }, 600);
 }
 
-// Init: show stage 0 in static state with "Start demo" button visible
+// Kick off initial animation
 runStageAnimation(0);
 
 // ── Typewriter ──
@@ -355,7 +249,7 @@ const typewriterEl = document.getElementById('typewriter');
 const tw_lines = [
   'Tabs you forget get archived automatically.',
   'Search anything. Find it in seconds.',
-  'Golden diamonds group your tabs by topic.',
+  'Purple diamonds group your tabs by topic.',
   'Your calendar triggers the restore for you.',
   'Everything stays in your browser. Always.',
 ];

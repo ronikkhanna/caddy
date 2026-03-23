@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caddy Vault: Your browser, remembered.</title>
-  <meta name="description" content="Caddy Vault quietly archives your inactive tabs, then surfaces them the moment you need them. Search your vault. Restore in one click.">
+  <title>Caddy: Your browser, remembered.</title>
+  <meta name="description" content="Caddy quietly archives your inactive tabs, then surfaces them the moment you need them. Search your vault. Restore in one click.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="dark-override.css">
 </head>
 <body>
-  <div class="gradient-orb" aria-hidden="true"></div>
+  <div class="blob3" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Caddy <em>Vault</em></a>
+      <a href="#" class="nav-logo">Caddy</a>
       <ul class="nav-links">
         <li><a href="#how">How it works</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
-      <a href="#download" class="nav-cta">Download Now</a>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -33,7 +32,7 @@
     <ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#download">Download Now</a></li>
+      <li><a href="#waitlist">Join Waitlist</a></li>
     </ul>
   </div>
 
@@ -41,16 +40,11 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <p class="hero-eyebrow">Your automated workflow caddy</p>
-        <h1 class="hero-headline">
+<h1 class="hero-headline">
           Your browser,<br>
           <em>remembered.</em>
         </h1>
         <p class="hero-one-liner">Archive. Search. Restore. Your tabs, exactly when you need them.</p>
-        <p class="hero-tagline">Never worry about your tabs again.</p>
-        <div class="hero-actions">
-          <a href="#download" class="btn-hero">Add to Chrome &mdash; It's Free</a>
-        </div>
         <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
       </div>
 
@@ -87,7 +81,7 @@
               </div>
             </div>
           </div>
-          <button class="demo-next-btn" id="next-0">Start demo</button>
+          <button class="demo-next-btn" id="next-0" data-goto="1">See smart groups &nbsp;&rarr;</button>
         </div>
 
         <!-- Stage 2: Smart Groups -->
@@ -95,7 +89,7 @@
           <div class="stage-label">II. Smart Groups</div>
           <div class="popup-mockup">
             <div class="mock-header">
-              <span class="mock-wordmark">Caddy <em>Vault</em></span>
+              <span class="mock-wordmark">Caddy</span>
               <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
             <!-- Groups strip -->
@@ -122,25 +116,23 @@
               </button>
             </div>
             <div class="mock-divider">
-              <span></span><small id="mock-group-label">Tap a group to restore all at once</small><span></span>
+              <span></span><small>Tap a group to restore all at once</small><span></span>
             </div>
-            <div id="mock-group-results">
-              <div class="mock-result">
-                <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
-                <div class="mock-info">
-                  <div class="mock-title">Study With Me — 3hr Pomodoro</div>
-                  <div class="mock-meta">youtube.com &middot; 1d ago</div>
-                </div>
-                <button class="mock-restore">Restore</button>
+            <div class="mock-result">
+              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
+              <div class="mock-info">
+                <div class="mock-title">Study With Me — 3hr Pomodoro</div>
+                <div class="mock-meta">youtube.com &middot; 1d ago</div>
               </div>
-              <div class="mock-result">
-                <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
-                <div class="mock-info">
-                  <div class="mock-title">Lo-fi Hip Hop Radio</div>
-                  <div class="mock-meta">youtube.com &middot; 2d ago</div>
-                </div>
-                <button class="mock-restore">Restore</button>
+              <button class="mock-restore">Restore</button>
+            </div>
+            <div class="mock-result">
+              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
+              <div class="mock-info">
+                <div class="mock-title">Lo-fi Hip Hop Radio</div>
+                <div class="mock-meta">youtube.com &middot; 2d ago</div>
               </div>
+              <button class="mock-restore">Restore</button>
             </div>
             <div class="mock-groups-cta" id="mock-restore-group">Restore YouTube group</div>
           </div>
@@ -152,7 +144,7 @@
           <div class="stage-label">II. Search</div>
           <div class="popup-mockup">
             <div class="mock-header">
-              <span class="mock-wordmark">Caddy <em>Vault</em></span>
+              <span class="mock-wordmark">Caddy</span>
               <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
             <div class="mock-search">
@@ -193,45 +185,38 @@
           <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
         </div>
 
-        <!-- Stage 4: Browser (Google Calendar) → corner notif from CV → full notification -->
+        <!-- Stage 4: Calendar + Auto-popup + Restore -->
         <div class="demo-stage" id="demo-3">
           <div class="stage-label">IV. Restore</div>
-          <div class="browser-win restore-browser-win">
-            <div class="browser-bar">
-              <div class="bwin-dots"><span></span><span></span><span></span></div>
-              <div class="bwin-url">calendar.google.com</div>
-              <div class="bwin-exts">
-                <div class="caddy-ext-icon">CV</div>
+          <div class="cal-mock">
+            <div class="cal-header">
+              <span class="cal-logo">&#128197;</span>
+              <span>Monday &middot; Today</span>
+            </div>
+            <div class="cal-body">
+              <div class="cal-row">
+                <div class="cal-time">2 PM</div>
+                <div class="cal-slot"></div>
               </div>
-            </div>
-            <div class="btabs">
-              <div class="btab btab-active"><span class="btab-fav">G</span><span class="btab-title">Google Calendar</span></div>
-              <div class="btab"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
-            </div>
-            <div class="bwin-body restore-bwin-body">
-              <div class="restore-cal-row">
-                <span class="restore-cal-time">2:57</span>
-                <div class="restore-cal-block restore-cal-block-large">
-                  <div class="restore-cal-title">ECON Midterm Study</div>
-                  <div class="restore-cal-sub">3:00 &ndash; 5:00 PM</div>
-                  <div class="restore-cal-sub restore-cal-location">Library Study Room</div>
+              <div class="cal-row cal-row-event">
+                <div class="cal-time cal-time-now">2:57</div>
+                <div class="cal-event-block">
+                  <div class="cal-event-title">ECON Midterm Study</div>
+                  <div class="cal-event-sub">3:00 &ndash; 5:00 PM</div>
+                  <div class="cal-countdown" id="cal-countdown">in 3 min</div>
                 </div>
               </div>
-            </div>
-            <!-- Notification pops from CV extension icon (top-right) -->
-            <div class="corner-notif" id="corner-notif">
-              <div class="corner-badge">CV</div>
-              <div class="corner-notif-text">
-                <div class="corner-title">ECON Midterm &middot; in 3 min</div>
-                <div class="corner-sub">3 tabs ready to restore</div>
+              <div class="cal-row">
+                <div class="cal-time">4 PM</div>
+                <div class="cal-slot"></div>
               </div>
             </div>
           </div>
-          <!-- Full notification expands below -->
+          <!-- Notification slides up -->
           <div class="caddy-notif" id="caddy-notif">
             <div class="notif-top">
               <div class="notif-badge">CV</div>
-              <div class="notif-app">Caddy Vault</div>
+              <div class="notif-app">Caddy</div>
               <div class="notif-time">now</div>
             </div>
             <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
@@ -269,7 +254,7 @@
   <section class="how" id="how">
     <div class="container">
       <div class="how-header">
-        <p class="section-eyebrow">The Caddy Vault</p>
+        <p class="section-eyebrow">The Caddy</p>
         <h2 class="reveal-heading">Three things. Done quietly.</h2>
       </div>
 
@@ -360,7 +345,7 @@
               <td class="c-partial">~</td>
             </tr>
             <tr class="caddyvault-row">
-              <td><strong>Caddy Vault</strong></td>
+              <td><strong>Caddy</strong></td>
               <td class="c-yes">&#10003;</td>
               <td class="c-yes">&#10003;</td>
               <td class="c-yes">&#10003;</td>
@@ -382,7 +367,7 @@
 
       <div class="pricing-single">
         <div class="pricing-card pricing-featured reveal">
-          <div class="plan-badge">Free &mdash; No credit card</div>
+          <div class="plan-badge">Free during early access</div>
           <div class="plan-tier">Everything. Free.</div>
           <div class="plan-price">$0</div>
           <div class="plan-interval">no credit card, no account</div>
@@ -394,7 +379,7 @@
             <li>Smart reminders with tab auto-match</li>
             <li>Everything stays in your browser</li>
           </ul>
-          <a href="#download" class="btn-plan btn-plan-gold">Download Now</a>
+          <a href="#waitlist" class="btn-plan btn-plan-gold">Join the Waitlist</a>
         </div>
       </div>
 
@@ -402,29 +387,29 @@
     </div>
   </section>
 
-  <!-- DOWNLOAD CTA -->
-  <section class="cta-section" id="download">
+  <!-- WAITLIST CTA -->
+  <section class="cta-section" id="waitlist">
     <div class="container container-narrow cta-inner">
       <h2 class="cta-headline reveal-heading">Stop losing your research.</h2>
-      <p class="cta-sub reveal">Install in seconds. Free, no strings.</p>
-      <a href="#" class="btn-hero" target="_blank" rel="noopener">
-        Add to Chrome &mdash; It's Free
-      </a>
-      <p class="cta-note">No credit card &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
+      <p class="cta-sub reveal">First to install when it ships. Free, no strings.</p>
+      <form class="waitlist-form" id="waitlist-form">
+        <input type="email" class="waitlist-input" id="waitlist-email" name="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn-hero waitlist-btn" id="waitlist-btn">Request Early Access</button>
+      </form>
+      <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-wordmark">Caddy <em>Vault</em></div>
+      <div class="footer-wordmark">Caddy</div>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Support</a>
       </div>
-      <p class="footer-domain">caddyvault.com</p>
-      <p class="footer-copy">&#169; 2026 Caddy Vault &nbsp;·&nbsp; Founded by Ronik Khanna</p>
+      <p class="footer-copy">&#169; 2026 Caddy</p>
     </div>
   </footer>
 
