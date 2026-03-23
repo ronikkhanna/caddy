@@ -1,0 +1,161 @@
+/* ── Dark Theme Override for CaddyVault Preview ── */
+
+/* ── Flip text/border variables ── */
+:root {
+  --text:       #EDE8D5;
+  --text-mid:   #C4BDD8;
+  --text-muted: #8A8299;
+  --border:     rgba(255, 255, 255, 0.07);
+  --purple-hint: rgba(147, 51, 234, 0.1);
+}
+
+body {
+  /* Match Caddy Rhythm's very-dark-near-black — but with purple tint instead of warm brown */
+  background-color: rgb(6, 4, 14);
+  color: var(--text);
+}
+
+/* ── Remove old blobs ── */
+body::before, body::after { display: none; }
+.blob3 { display: none; }
+
+/* Re-declare the body > * stacking rule to also exclude .gradient-orb */
+body > *:not(.blob3):not(.gradient-orb):not(.mobile-nav) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Purple gradient orb ── */
+.gradient-orb {
+  position: fixed !important;
+  top: 42% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: min(800px, 130vw);
+  height: min(800px, 130vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.26) 0%, rgba(139, 92, 246, 0.10) 38%, transparent 68%);
+  pointer-events: none;
+  z-index: 0 !important;
+}
+
+/* ── Nav ── */
+.nav {
+  background: rgba(6, 4, 14, 0.88);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.nav-logo { color: #EDE8D5; }
+
+.nav-links a { color: var(--text-muted); }
+.nav-links a:hover { color: #EDE8D5; }
+
+.nav-cta {
+  color: var(--gold-light);
+  border-color: rgba(184, 150, 12, 0.4);
+}
+.nav-cta:hover {
+  background: rgba(184, 150, 12, 0.1);
+  color: var(--gold-light);
+}
+
+.hamburger span { background: #EDE8D5; }
+
+/* ── Mobile Nav ── */
+.mobile-nav { background: rgba(7, 5, 13, 0.97); }
+.mobile-nav ul li a { color: #EDE8D5; }
+
+/* ── Hero ── */
+.hero { background-image: none; }
+.hero-headline { color: #EDE8D5; }
+
+/* ── Download / CTA buttons ── */
+.btn-hero {
+  background: #EDE8D5;
+  color: #09080F;
+}
+.btn-hero:hover { opacity: 0.88; }
+
+.hero-actions {
+  margin: 28px 0 0;
+  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s backwards;
+}
+
+/* ── Trust strip ── */
+.trust-strip {
+  background: rgba(255, 255, 255, 0.02);
+  border-top-color:    rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── How it works ── */
+.how-header h2 { color: #EDE8D5; }
+.how-step h3   { color: #EDE8D5; }
+
+/* ── Editorial ── */
+.editorial {
+  background: rgba(255, 255, 255, 0.015);
+  background-image: none;
+}
+
+/* ── Comparison ── */
+.compare-headline { color: #EDE8D5; }
+
+.compare-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.c-no { color: rgba(237, 232, 213, 0.2); }
+
+.caddyvault-row {
+  background: rgba(184, 150, 12, 0.07);
+}
+.caddyvault-row td:first-child { color: #EDE8D5; }
+
+/* ── Pricing ── */
+.pricing { background: rgba(255, 255, 255, 0.015); }
+
+.pricing-headline { color: #EDE8D5; }
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.pricing-featured {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 1px var(--gold-light), 0 0 60px rgba(184, 150, 12, 0.07);
+}
+
+.plan-price { color: #EDE8D5; }
+
+.plan-interval {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.plan-list li {
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ── CTA Section ── */
+.cta-headline { color: #EDE8D5; }
+
+/* ── Footer ── */
+.footer-wordmark { color: #EDE8D5; }
+.footer-links a:hover { color: #EDE8D5; }
+
+/* ── Demo next buttons — visible on dark bg ── */
+.demo-next-btn {
+  background: rgba(237, 232, 213, 0.06);
+  color: #EDE8D5;
+  border: 1px solid rgba(237, 232, 213, 0.14);
+}
+.demo-next-btn:hover { opacity: 0.75; }
+
+.demo-next-ghost {
+  background: none;
+  color: var(--text-muted);
+  border-color: rgba(237, 232, 213, 0.1);
+}
+
+.demo-dot { background: rgba(255, 255, 255, 0.12); }
