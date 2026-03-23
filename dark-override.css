@@ -27,7 +27,7 @@ body > *:not(.blob3):not(.gradient-orb):not(.mobile-nav) {
 /* ── Gradient orb ── */
 .gradient-orb {
   position: fixed !important;
-  top: 36% !important;
+  top: 42% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   width: min(480px, 85vw);
