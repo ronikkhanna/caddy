@@ -1,3 +1,15 @@
+// ── Intro screen ──
+(function () {
+  const intro = document.getElementById('intro-screen');
+  if (!intro) return;
+  // Wipe animation takes ~1.2s, then hold, then fade
+  // Total visible: 2s after wipe completes → start fade at ~2.5s
+  setTimeout(() => {
+    intro.classList.add('fade-out');
+    setTimeout(() => intro.classList.add('gone'), 700);
+  }, 2500);
+})();
+
 // ── Hamburger / Mobile Nav ──
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
