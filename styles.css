@@ -1827,9 +1827,9 @@ em { font-style: italic; }
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 600px 600px at -100px -100px, rgba(190, 60, 240, 0.32), transparent),
-    radial-gradient(ellipse 500px 500px at calc(100% + 80px) 70%, rgba(235, 50, 145, 0.28), transparent),
-    radial-gradient(ellipse 450px 450px at 40% 55%, rgba(210, 70, 230, 0.22), transparent),
+    radial-gradient(ellipse 620px 620px at -80px -80px, rgba(190, 60, 240, 0.46), transparent),
+    radial-gradient(ellipse 520px 520px at calc(100% + 60px) 65%, rgba(235, 50, 145, 0.42), transparent),
+    radial-gradient(ellipse 480px 480px at 42% 58%, rgba(210, 70, 230, 0.34), transparent),
     #FDFCFF;
   z-index: 9999;
   display: flex;

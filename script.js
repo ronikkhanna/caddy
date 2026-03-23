@@ -7,25 +7,26 @@ if (splash) {
   const line1Words = document.querySelectorAll('#splash-line1 .splash-word');
   const line2Words = document.querySelectorAll('#splash-line2 .splash-word');
 
-  const wordDelay = 340;   // ms between each word appearing
-  const pauseBetweenLines = 1050; // pause after "tabs," before "never again."
-  const holdAfterDone = 1200;  // hold on completed text before fading
+  const wordDelayL1 = 260;  // slightly snappy for first line
+  const pauseBetweenLines = 1000; // 1 second pause between lines
+  const wordDelayL2 = 320;  // slightly slower/deliberate for emphasis
+  const holdAfterDone = 1200;  // hold before fading
 
   // Animate line 1 word by word
-  let t = 320;
+  let t = 280;
   line1Words.forEach((word) => {
     setTimeout(() => word.classList.add('show'), t);
-    t += wordDelay;
+    t += wordDelayL1;
   });
 
   // After line 1 finishes (+transition time), pause, then animate line 2
   const line2Start = t + pauseBetweenLines;
   line2Words.forEach((word, i) => {
-    setTimeout(() => word.classList.add('show'), line2Start + i * wordDelay);
+    setTimeout(() => word.classList.add('show'), line2Start + i * wordDelayL2);
   });
 
   // Fade out after everything is done
-  const fadeOut = line2Start + (line2Words.length - 1) * wordDelay + 550 + holdAfterDone;
+  const fadeOut = line2Start + (line2Words.length - 1) * wordDelayL2 + 550 + holdAfterDone;
   setTimeout(() => {
     splash.classList.add('done');
     document.body.style.overflow = '';
