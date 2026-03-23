@@ -1959,6 +1959,42 @@ em { font-style: italic; }
   height: 460px;
 }
 
+/* ── Demo Start Screen ── */
+.demo-start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 60px 0;
+}
+
+.demo-start-hint {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.demo-start-btn {
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black);
+  background: transparent;
+  border: 1.5px solid var(--gold-light);
+  padding: 14px 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.demo-start-btn:hover {
+  background: var(--gold-light);
+  color: var(--black);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.3);
+}
+
 /* Download CTA button */
 .download-btn {
   display: inline-block;

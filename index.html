@@ -74,7 +74,14 @@
   <!-- DEMO SECTION — full page on desktop -->
   <section class="demo-section" id="demo">
     <div class="demo-section-inner">
-      <div class="demo-wrap">
+
+      <!-- Start screen shown before demo begins -->
+      <div class="demo-start-screen" id="demo-start-screen">
+        <p class="demo-start-hint">See how it works</p>
+        <button class="demo-start-btn" id="demo-start-btn">Start Demo</button>
+      </div>
+
+      <div class="demo-wrap" id="demo-wrap" style="display:none">
         <div class="demo-nav">
           <button class="demo-dot active" data-step="0"></button>
           <button class="demo-dot" data-step="1"></button>
@@ -255,7 +262,7 @@
           <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
         </div>
 
-      </div>
+      </div><!-- /demo-wrap -->
     </div>
   </section>
 

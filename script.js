@@ -269,5 +269,15 @@ function handleDemoRestore() {
   }, 600);
 }
 
-// Kick off initial animation
-runStageAnimation(0);
+// ── Demo Start Button ──
+const demoStartBtn = document.getElementById('demo-start-btn');
+const demoStartScreen = document.getElementById('demo-start-screen');
+const demoWrap = document.getElementById('demo-wrap');
+
+if (demoStartBtn) {
+  demoStartBtn.addEventListener('click', () => {
+    demoStartScreen.style.display = 'none';
+    demoWrap.style.display = 'block';
+    runStageAnimation(0);
+  });
+}
