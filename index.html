@@ -82,11 +82,24 @@
       </div>
 
       <div class="demo-wrap" id="demo-wrap" style="display:none">
+
+        <!-- Triangle nav arrows -->
+        <button class="demo-arrow demo-arrow-l" id="demo-arrow-left">&#9664;</button>
+        <button class="demo-arrow demo-arrow-r" id="demo-arrow-right">&#9654;</button>
+
+        <!-- Animated cursor hint -->
+        <div class="demo-cursor" id="demo-cursor">
+          <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 1.5L12.5 9L8 10.5L5.5 17L2 1.5Z" fill="#0A080F" stroke="white" stroke-width="0.8"/>
+          </svg>
+        </div>
+
         <div class="demo-nav">
           <button class="demo-dot active" data-step="0"></button>
           <button class="demo-dot" data-step="1"></button>
           <button class="demo-dot" data-step="2"></button>
           <button class="demo-dot" data-step="3"></button>
+          <button class="demo-dot" data-step="4"></button>
         </div>
 
         <!-- Stage 1: Archive -->
@@ -96,129 +109,102 @@
             <div class="browser-bar">
               <div class="bwin-dots"><span></span><span></span><span></span></div>
               <div class="bwin-url">canvas.ubc.ca</div>
-              <div class="bwin-exts">
-                <div class="caddy-ext-icon">CV</div>
-              </div>
+              <div class="bwin-exts"><div class="caddy-ext-icon">CV</div></div>
             </div>
             <div class="btabs" id="btabs">
               <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
               <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
               <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
+              <div class="btab" id="btab-3"><span class="btab-fav">R</span><span class="btab-title">r/economics</span></div>
               <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
             </div>
-            <div class="bwin-body">
+            <div class="bwin-body bwin-body-lg">
               <div class="archive-toast" id="archive-toast">
                 <span class="toast-glyph">&#9672;</span>
-                <span>3 inactive tabs archived to vault</span>
+                <span>4 inactive tabs archived to vault</span>
               </div>
             </div>
           </div>
-          <button class="demo-next-btn" id="next-0" data-goto="1">See smart groups &nbsp;&rarr;</button>
         </div>
 
         <!-- Stage 2: Smart Groups -->
         <div class="demo-stage" id="demo-1">
           <div class="stage-label">II. Smart Groups</div>
-          <div class="popup-mockup">
-            <div class="mock-header">
-              <span class="mock-wordmark">Caddy Vault</span>
-              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
+          <div class="ext-popup">
+            <div class="ext-header">
+              <span class="ext-wordmark">Caddy <em>Vault</em></span>
+              <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
             </div>
-            <div class="mock-groups-strip">
-              <button class="mock-group-btn">
-                <span class="mock-diamond">&#9670;</span>
-                <span class="mock-group-name">Uni</span>
-                <span class="mock-group-count">4 tabs</span>
-              </button>
-              <button class="mock-group-btn">
-                <span class="mock-diamond">&#9670;</span>
-                <span class="mock-group-name">Research</span>
-                <span class="mock-group-count">3 tabs</span>
-              </button>
-              <button class="mock-group-btn mock-group-btn-active">
-                <span class="mock-diamond">&#9670;</span>
-                <span class="mock-group-name">YouTube</span>
-                <span class="mock-group-count">2 tabs</span>
-              </button>
-              <button class="mock-group-btn">
-                <span class="mock-diamond">&#9670;</span>
-                <span class="mock-group-name">Social</span>
-                <span class="mock-group-count">5 tabs</span>
-              </button>
+            <div class="ext-search-bar">
+              <span class="ext-search-glyph">&#10022;</span>
+              <span class="ext-search-placeholder">Search your vault&hellip;</span>
             </div>
-            <div class="mock-divider">
-              <span></span><small>Tap a group to restore all at once</small><span></span>
+            <div class="ext-groups-strip" id="ext-groups-1">
+              <div class="ext-chip" id="chip-uni"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
+              <div class="ext-chip" id="chip-yt"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">YouTube</span><span class="ext-chip-count">2 tabs</span></div>
+              <div class="ext-chip" id="chip-res"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Research</span><span class="ext-chip-count">3 tabs</span></div>
+              <div class="ext-chip" id="chip-soc"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">5 tabs</span></div>
             </div>
-            <div class="mock-result">
-              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
-              <div class="mock-info">
-                <div class="mock-title">Study With Me — 3hr Pomodoro</div>
-                <div class="mock-meta">youtube.com &middot; 1d ago</div>
-              </div>
-              <button class="mock-restore">Restore</button>
+            <div class="ext-divider"><span></span><small>tap a group to restore all at once</small><span></span></div>
+            <div class="ext-results-area" id="ext-results-1">
+              <div class="ext-tab-row"><div class="ext-tab-fav">C</div><div class="ext-tab-info"><div class="ext-tab-title">ECON 102 Guide</div><div class="ext-tab-meta">canvas.ubc.ca &middot; 1d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">E</div><div class="ext-tab-info"><div class="ext-tab-title">Intro to Economics</div><div class="ext-tab-meta">economics101.com &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">I</div><div class="ext-tab-info"><div class="ext-tab-title">Investopedia: Supply &amp; Demand</div><div class="ext-tab-meta">investopedia.com &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">Q</div><div class="ext-tab-info"><div class="ext-tab-title">ECON Flashcards &mdash; Quizlet</div><div class="ext-tab-meta">quizlet.com &middot; 3d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-restore-all-row"><button class="ext-restore-all-btn">Restore all 4 &nbsp;&rarr;</button></div>
             </div>
-            <div class="mock-result">
-              <div class="mock-favicon" style="background:rgba(124,58,237,0.15);color:#9F67FF">Y</div>
-              <div class="mock-info">
-                <div class="mock-title">Lo-fi Hip Hop Radio</div>
-                <div class="mock-meta">youtube.com &middot; 2d ago</div>
-              </div>
-              <button class="mock-restore">Restore</button>
-            </div>
-            <div class="mock-groups-cta" id="mock-restore-group">Restore YouTube group</div>
           </div>
-          <button class="demo-next-btn" id="next-1" data-goto="2">Search the vault &nbsp;&rarr;</button>
         </div>
 
-        <!-- Stage 3: Search -->
+        <!-- Stage 3: Session Groups -->
         <div class="demo-stage" id="demo-2">
-          <div class="stage-label">III. Search</div>
-          <div class="popup-mockup">
-            <div class="mock-header">
-              <span class="mock-wordmark">Caddy Vault</span>
-              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
+          <div class="stage-label">III. Session Groups</div>
+          <div class="ext-popup">
+            <div class="ext-header">
+              <span class="ext-wordmark">Caddy <em>Vault</em></span>
+              <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
             </div>
-            <div class="mock-search">
-              <span class="mock-glyph">&#10022;</span>
-              <span class="mock-input" id="mock-query">econ</span>
-              <span class="mock-cursor"></span>
+            <div class="ext-search-bar">
+              <span class="ext-search-glyph">&#10022;</span>
+              <span class="ext-search-placeholder">Search your vault&hellip;</span>
             </div>
-            <div class="mock-divider">
-              <span></span><small id="mock-label">3 results &middot; "econ"</small><span></span>
+            <div class="ext-groups-strip" id="ext-groups-2">
+              <div class="ext-chip ext-chip-session" id="chip-session"><span class="ext-chip-icon">&#9672;</span><span class="ext-chip-name">Sun session</span><span class="ext-chip-count">8 tabs</span></div>
+              <div class="ext-chip" id="chip-uni-2"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
+              <div class="ext-chip" id="chip-soc-2"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">3 tabs</span></div>
             </div>
-            <div id="mock-results">
-              <div class="mock-result">
-                <div class="mock-favicon">E</div>
-                <div class="mock-info">
-                  <div class="mock-title">Introduction to Economics</div>
-                  <div class="mock-meta">economics101.com &middot; 2h ago</div>
-                </div>
-                <button class="mock-restore">Restore</button>
-              </div>
-              <div class="mock-result">
-                <div class="mock-favicon">C</div>
-                <div class="mock-info">
-                  <div class="mock-title">ECON 102: Midterm Guide</div>
-                  <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
-                </div>
-                <button class="mock-restore">Restore</button>
-              </div>
-              <div class="mock-result">
-                <div class="mock-favicon">I</div>
-                <div class="mock-info">
-                  <div class="mock-title">Supply and Demand, Investopedia</div>
-                  <div class="mock-meta">investopedia.com &middot; 3d ago</div>
-                </div>
-                <button class="mock-restore">Restore</button>
-              </div>
+            <div class="ext-divider"><span></span><small>sessions restore your whole browser state</small><span></span></div>
+            <div class="ext-results-area" id="ext-results-2">
+              <div class="ext-tab-row"><div class="ext-tab-fav">E</div><div class="ext-tab-info"><div class="ext-tab-title">Intro to Economics</div><div class="ext-tab-meta">economics101.com &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">C</div><div class="ext-tab-info"><div class="ext-tab-title">ECON 102 Guide</div><div class="ext-tab-meta">canvas.ubc.ca &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">R</div><div class="ext-tab-info"><div class="ext-tab-title">Reddit &mdash; r/economics</div><div class="ext-tab-meta">reddit.com &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row"><div class="ext-tab-fav">N</div><div class="ext-tab-info"><div class="ext-tab-title">NASA Climate Overview</div><div class="ext-tab-meta">climate.nasa.gov &middot; 2d ago</div></div><button class="ext-restore-btn">Restore</button></div>
+              <div class="ext-tab-row ext-tab-more"><div class="ext-tab-fav ext-tab-fav-more">+4</div><div class="ext-tab-info"><div class="ext-tab-title ext-tab-title-dim">4 more tabs in this session</div></div></div>
+              <div class="ext-restore-all-row"><button class="ext-restore-all-btn ext-restore-session-btn">Restore session &nbsp;&middot;&nbsp; 8 tabs &nbsp;&rarr;</button></div>
             </div>
           </div>
-          <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
         </div>
 
-        <!-- Stage 4: Calendar + Auto-popup + Restore -->
+        <!-- Stage 4: Search -->
         <div class="demo-stage" id="demo-3">
-          <div class="stage-label">IV. Restore</div>
+          <div class="stage-label">IV. Search</div>
+          <div class="ext-popup">
+            <div class="ext-header">
+              <span class="ext-wordmark">Caddy <em>Vault</em></span>
+              <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
+            </div>
+            <div class="ext-search-bar ext-search-bar-active">
+              <span class="ext-search-glyph">&#10022;</span>
+              <span class="ext-search-typing" id="mock-query"></span><span class="ext-cursor-blink"></span>
+            </div>
+            <div class="ext-divider"><span></span><small id="mock-label">type to search&hellip;</small><span></span></div>
+            <div class="ext-results-area visible" id="mock-results" style="opacity:0;transform:translateY(6px)"></div>
+          </div>
+        </div>
+
+        <!-- Stage 5: Calendar + Notification -->
+        <div class="demo-stage" id="demo-4">
+          <div class="stage-label">V. Restore</div>
           <div class="cal-mock">
             <div class="cal-header">
               <span class="cal-logo">&#128197;</span>
@@ -250,13 +236,13 @@
               <div class="notif-time">now</div>
             </div>
             <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
-            <div class="notif-sub">3 matching tabs ready to restore</div>
+            <div class="notif-sub">4 matching tabs ready to restore</div>
             <div class="notif-actions" id="notif-actions">
               <button class="notif-btn-primary" id="restore-btn">Restore All</button>
               <button class="notif-btn-ghost">Dismiss</button>
             </div>
             <div class="notif-success" id="notif-success">
-              <span class="success-check">&#10003;</span> 3 tabs restored
+              <span class="success-check">&#10003;</span> 4 tabs restored
             </div>
           </div>
           <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
