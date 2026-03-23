@@ -1,22 +1,35 @@
 // ── Splash Screen ──
 const splash = document.getElementById('splash');
-const splashWords = document.querySelectorAll('.splash-word');
 
 if (splash) {
   document.body.style.overflow = 'hidden';
 
-  const wordDelay = 190;
-  const holdAfterLast = 900;
+  const line1Words = document.querySelectorAll('#splash-line1 .splash-word');
+  const line2Words = document.querySelectorAll('#splash-line2 .splash-word');
 
-  splashWords.forEach((word, i) => {
-    setTimeout(() => word.classList.add('show'), 280 + i * wordDelay);
+  const wordDelay = 340;   // ms between each word appearing
+  const pauseBetweenLines = 1050; // pause after "tabs," before "never again."
+  const holdAfterDone = 1200;  // hold on completed text before fading
+
+  // Animate line 1 word by word
+  let t = 320;
+  line1Words.forEach((word) => {
+    setTimeout(() => word.classList.add('show'), t);
+    t += wordDelay;
   });
 
-  const totalTime = 280 + (splashWords.length - 1) * wordDelay + holdAfterLast;
+  // After line 1 finishes (+transition time), pause, then animate line 2
+  const line2Start = t + pauseBetweenLines;
+  line2Words.forEach((word, i) => {
+    setTimeout(() => word.classList.add('show'), line2Start + i * wordDelay);
+  });
+
+  // Fade out after everything is done
+  const fadeOut = line2Start + (line2Words.length - 1) * wordDelay + 550 + holdAfterDone;
   setTimeout(() => {
     splash.classList.add('done');
     document.body.style.overflow = '';
-  }, totalTime);
+  }, fadeOut);
 }
 
 // ── Demo scroll button ──

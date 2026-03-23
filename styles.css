@@ -280,13 +280,13 @@ em { font-style: italic; }
 
 /* ── Hero ── */
 .hero {
-  padding: 100px 0 56px;
+  padding: 100px 0 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 62vh;
-  justify-content: center;
+  min-height: 85vh;
+  justify-content: space-between;
 }
 
 /* kept for any legacy references */
@@ -1826,13 +1826,13 @@ em { font-style: italic; }
 .splash {
   position: fixed;
   inset: 0;
-  background: #0A080F;
+  background: radial-gradient(ellipse 120% 100% at 40% 60%, #2B1A6B 0%, #0D0818 55%, #1A0A1E 100%);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .splash.done {
@@ -1841,24 +1841,35 @@ em { font-style: italic; }
   pointer-events: none;
 }
 
-.splash-words {
+.splash-content {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0 32px;
+}
+
+.splash-line {
+  display: flex;
+  gap: 0.3em;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.25em;
-  padding: 0 24px;
-  max-width: 800px;
+}
+
+.splash-line2 {
+  margin-top: 0.1em;
 }
 
 .splash-word {
   font-family: var(--font);
-  font-size: clamp(26px, 4.5vw, 52px);
+  font-size: clamp(28px, 4.8vw, 58px);
   font-weight: 400;
   font-style: italic;
-  color: var(--gold-light);
+  color: #C8A84B;
   opacity: 0;
-  transform: translateX(-18px);
-  transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
 }
 
 .splash-word.show {
@@ -1876,7 +1887,7 @@ em { font-style: italic; }
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: 52px;
+  padding-bottom: 16px;
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.0s backwards;
 }
 
