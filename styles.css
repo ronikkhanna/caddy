@@ -1826,7 +1826,11 @@ em { font-style: italic; }
 .splash {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse 140% 120% at 30% 70%, rgba(235, 50, 145, 0.55) 0%, rgba(190, 60, 200, 0.35) 40%, #0D080F 75%);
+  background:
+    radial-gradient(ellipse 600px 600px at -100px -100px, rgba(190, 60, 240, 0.32), transparent),
+    radial-gradient(ellipse 500px 500px at calc(100% + 80px) 70%, rgba(235, 50, 145, 0.28), transparent),
+    radial-gradient(ellipse 450px 450px at 40% 55%, rgba(210, 70, 230, 0.22), transparent),
+    #FDFCFF;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -1865,7 +1869,7 @@ em { font-style: italic; }
   font-size: clamp(28px, 4.8vw, 58px);
   font-weight: 400;
   font-style: italic;
-  color: #C8A84B;
+  color: #0A080F;
   opacity: 0;
   transform: translateX(-14px);
   transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
