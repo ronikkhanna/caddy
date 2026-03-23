@@ -11,11 +11,6 @@
   <link rel="stylesheet" href="dark-override.css">
 </head>
 <body>
-  <!-- INTRO SCREEN -->
-  <div id="intro-screen" aria-hidden="true">
-    <p class="intro-text">Never worry about your tabs again.</p>
-  </div>
-
   <div class="gradient-orb" aria-hidden="true"></div>
 
   <!-- NAV -->
@@ -44,218 +39,227 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner hero-centered">
-      <p class="hero-badge">Chrome Extension</p>
-      <h1 class="hero-headline">Your automated workflow <em>caddy.</em></h1>
-      <p class="hero-one-liner">Archive. Search. Restore. Your tabs, exactly when you need them.</p>
-      <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
-    </div>
-    <a href="#demo" class="btn-scroll-down" aria-label="See the demo">↓</a>
-  </section>
-
-  <!-- DEMO -->
-  <section class="demo-section" id="demo">
-    <div class="demo-wrap">
-      <div class="demo-nav">
-        <button class="demo-dot active" data-step="0"></button>
-        <button class="demo-dot" data-step="1"></button>
-        <button class="demo-dot" data-step="2"></button>
-        <button class="demo-dot" data-step="3"></button>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Your automated workflow caddy</p>
+        <h1 class="hero-headline">
+          Your browser,<br>
+          <em>remembered.</em>
+        </h1>
+        <p class="hero-one-liner">Archive. Search. Restore. Your tabs, exactly when you need them.</p>
+        <p class="hero-tagline">Never worry about your tabs again.</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn-hero">Add to Chrome &mdash; It's Free</a>
+        </div>
+        <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
       </div>
 
-      <!-- Stage 1: Archive -->
-      <div class="demo-stage active" id="demo-0">
-        <div class="stage-label">I. Archive</div>
-        <div class="browser-win">
-          <div class="browser-bar">
-            <div class="bwin-dots"><span></span><span></span><span></span></div>
-            <div class="bwin-url">canvas.ubc.ca</div>
-            <div class="bwin-exts">
-              <div class="caddy-ext-icon">CV</div>
-            </div>
-          </div>
-          <div class="btabs" id="btabs">
-            <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
-            <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
-            <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
-            <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
-          </div>
-          <div class="bwin-body">
-            <div class="archive-toast" id="archive-toast">
-              <span class="toast-glyph">&#9672;</span>
-              <span>3 inactive tabs archived to vault</span>
-            </div>
-          </div>
+      <!-- 3-Step Demo -->
+      <div class="demo-wrap">
+        <div class="demo-nav">
+          <button class="demo-dot active" data-step="0"></button>
+          <button class="demo-dot" data-step="1"></button>
+          <button class="demo-dot" data-step="2"></button>
+          <button class="demo-dot" data-step="3"></button>
         </div>
-        <button class="demo-next-btn" id="next-0">Start demo</button>
-      </div>
 
-      <!-- Stage 2: Smart Groups -->
-      <div class="demo-stage" id="demo-1">
-        <div class="stage-label">II. Smart Groups</div>
-        <div class="popup-mockup">
-          <div class="mock-header">
-            <span class="mock-wordmark">Caddy <em>Vault</em></span>
-            <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
-          </div>
-          <div class="mock-groups-strip">
-            <button class="mock-group-btn">
-              <span class="mock-diamond">◆</span>
-              <span class="mock-group-name">Uni</span>
-              <span class="mock-group-count">4 tabs</span>
-            </button>
-            <button class="mock-group-btn">
-              <span class="mock-diamond">◆</span>
-              <span class="mock-group-name">Research</span>
-              <span class="mock-group-count">3 tabs</span>
-            </button>
-            <button class="mock-group-btn mock-group-btn-active">
-              <span class="mock-diamond">◆</span>
-              <span class="mock-group-name">YouTube</span>
-              <span class="mock-group-count">2 tabs</span>
-            </button>
-            <button class="mock-group-btn">
-              <span class="mock-diamond">◆</span>
-              <span class="mock-group-name">Social</span>
-              <span class="mock-group-count">5 tabs</span>
-            </button>
-          </div>
-          <div class="mock-divider">
-            <span></span><small id="mock-group-label">Tap a group to restore all at once</small><span></span>
-          </div>
-          <div id="mock-group-results">
-            <div class="mock-result">
-              <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
-              <div class="mock-info">
-                <div class="mock-title">Study With Me — 3hr Pomodoro</div>
-                <div class="mock-meta">youtube.com &middot; 1d ago</div>
+        <!-- Stage 1: Archive -->
+        <div class="demo-stage active" id="demo-0">
+          <div class="stage-label">I. Archive</div>
+          <div class="browser-win">
+            <div class="browser-bar">
+              <div class="bwin-dots"><span></span><span></span><span></span></div>
+              <div class="bwin-url">canvas.ubc.ca</div>
+              <div class="bwin-exts">
+                <div class="caddy-ext-icon">CV</div>
               </div>
-              <button class="mock-restore">Restore</button>
             </div>
-            <div class="mock-result">
-              <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
-              <div class="mock-info">
-                <div class="mock-title">Lo-fi Hip Hop Radio</div>
-                <div class="mock-meta">youtube.com &middot; 2d ago</div>
+            <div class="btabs" id="btabs">
+              <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
+              <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
+              <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
+              <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
+            </div>
+            <div class="bwin-body">
+              <div class="archive-toast" id="archive-toast">
+                <span class="toast-glyph">&#9672;</span>
+                <span>3 inactive tabs archived to vault</span>
               </div>
-              <button class="mock-restore">Restore</button>
             </div>
           </div>
-          <div class="mock-groups-cta" id="mock-restore-group">Restore YouTube group</div>
+          <button class="demo-next-btn" id="next-0">Start demo</button>
         </div>
-        <button class="demo-next-btn" id="next-1" data-goto="2">Search the vault &nbsp;&rarr;</button>
-      </div>
 
-      <!-- Stage 3: Search -->
-      <div class="demo-stage" id="demo-2">
-        <div class="stage-label">III. Search</div>
-        <div class="popup-mockup">
-          <div class="mock-header">
-            <span class="mock-wordmark">Caddy <em>Vault</em></span>
-            <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
-          </div>
-          <div class="mock-search">
-            <span class="mock-glyph">&#10022;</span>
-            <span class="mock-input" id="mock-query">econ</span>
-            <span class="mock-cursor"></span>
-          </div>
-          <div class="mock-divider">
-            <span></span><small id="mock-label">3 results &middot; "econ"</small><span></span>
-          </div>
-          <div id="mock-results">
-            <div class="mock-result">
-              <div class="mock-favicon">E</div>
-              <div class="mock-info">
-                <div class="mock-title">Introduction to Economics</div>
-                <div class="mock-meta">economics101.com &middot; 2h ago</div>
-              </div>
-              <button class="mock-restore">Restore</button>
+        <!-- Stage 2: Smart Groups -->
+        <div class="demo-stage" id="demo-1">
+          <div class="stage-label">II. Smart Groups</div>
+          <div class="popup-mockup">
+            <div class="mock-header">
+              <span class="mock-wordmark">Caddy <em>Vault</em></span>
+              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
-            <div class="mock-result">
-              <div class="mock-favicon">C</div>
-              <div class="mock-info">
-                <div class="mock-title">ECON 102: Midterm Guide</div>
-                <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
-              </div>
-              <button class="mock-restore">Restore</button>
+            <!-- Groups strip -->
+            <div class="mock-groups-strip">
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Uni</span>
+                <span class="mock-group-count">4 tabs</span>
+              </button>
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Research</span>
+                <span class="mock-group-count">3 tabs</span>
+              </button>
+              <button class="mock-group-btn mock-group-btn-active">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">YouTube</span>
+                <span class="mock-group-count">2 tabs</span>
+              </button>
+              <button class="mock-group-btn">
+                <span class="mock-diamond">◆</span>
+                <span class="mock-group-name">Social</span>
+                <span class="mock-group-count">5 tabs</span>
+              </button>
             </div>
-            <div class="mock-result">
-              <div class="mock-favicon">I</div>
-              <div class="mock-info">
-                <div class="mock-title">Supply and Demand, Investopedia</div>
-                <div class="mock-meta">investopedia.com &middot; 3d ago</div>
-              </div>
-              <button class="mock-restore">Restore</button>
+            <div class="mock-divider">
+              <span></span><small id="mock-group-label">Tap a group to restore all at once</small><span></span>
             </div>
+            <div id="mock-group-results">
+              <div class="mock-result">
+                <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
+                <div class="mock-info">
+                  <div class="mock-title">Study With Me — 3hr Pomodoro</div>
+                  <div class="mock-meta">youtube.com &middot; 1d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+              <div class="mock-result">
+                <div class="mock-favicon" style="background:rgba(195,158,55,0.12);color:#C39E37">Y</div>
+                <div class="mock-info">
+                  <div class="mock-title">Lo-fi Hip Hop Radio</div>
+                  <div class="mock-meta">youtube.com &middot; 2d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+            </div>
+            <div class="mock-groups-cta" id="mock-restore-group">Restore YouTube group</div>
           </div>
+          <button class="demo-next-btn" id="next-1" data-goto="2">Search the vault &nbsp;&rarr;</button>
         </div>
-        <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
-      </div>
 
-      <!-- Stage 4: Calendar restore -->
-      <div class="demo-stage" id="demo-3">
-        <div class="stage-label">IV. Restore</div>
-        <div class="browser-win restore-browser-win">
-          <div class="browser-bar">
-            <div class="bwin-dots"><span></span><span></span><span></span></div>
-            <div class="bwin-url">calendar.google.com</div>
-            <div class="bwin-exts">
-              <div class="caddy-ext-icon">CV</div>
+        <!-- Stage 3: Search -->
+        <div class="demo-stage" id="demo-2">
+          <div class="stage-label">II. Search</div>
+          <div class="popup-mockup">
+            <div class="mock-header">
+              <span class="mock-wordmark">Caddy <em>Vault</em></span>
+              <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
-          </div>
-          <div class="btabs">
-            <div class="btab btab-active"><span class="btab-fav">G</span><span class="btab-title">Google Calendar</span></div>
-            <div class="btab"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
-          </div>
-          <div class="bwin-body restore-bwin-body">
-            <div class="restore-cal-row">
-              <span class="restore-cal-time">2:57</span>
-              <div class="restore-cal-block restore-cal-block-large">
-                <div class="restore-cal-title">ECON Midterm Study</div>
-                <div class="restore-cal-sub">3:00 &ndash; 5:00 PM</div>
-                <div class="restore-cal-sub restore-cal-location">Library Study Room</div>
+            <div class="mock-search">
+              <span class="mock-glyph">&#10022;</span>
+              <span class="mock-input" id="mock-query">econ</span>
+              <span class="mock-cursor"></span>
+            </div>
+            <div class="mock-divider">
+              <span></span><small id="mock-label">3 results &middot; "econ"</small><span></span>
+            </div>
+            <div id="mock-results">
+              <div class="mock-result">
+                <div class="mock-favicon">E</div>
+                <div class="mock-info">
+                  <div class="mock-title">Introduction to Economics</div>
+                  <div class="mock-meta">economics101.com &middot; 2h ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+              <div class="mock-result">
+                <div class="mock-favicon">C</div>
+                <div class="mock-info">
+                  <div class="mock-title">ECON 102: Midterm Guide</div>
+                  <div class="mock-meta">canvas.ubc.ca &middot; 1d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
+              </div>
+              <div class="mock-result">
+                <div class="mock-favicon">I</div>
+                <div class="mock-info">
+                  <div class="mock-title">Supply and Demand, Investopedia</div>
+                  <div class="mock-meta">investopedia.com &middot; 3d ago</div>
+                </div>
+                <button class="mock-restore">Restore</button>
               </div>
             </div>
           </div>
-          <div class="corner-notif" id="corner-notif">
-            <div class="corner-badge">CV</div>
-            <div class="corner-notif-text">
-              <div class="corner-title">ECON Midterm &middot; in 3 min</div>
-              <div class="corner-sub">3 tabs ready to restore</div>
+          <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
+        </div>
+
+        <!-- Stage 4: Browser (Google Calendar) → corner notif from CV → full notification -->
+        <div class="demo-stage" id="demo-3">
+          <div class="stage-label">IV. Restore</div>
+          <div class="browser-win restore-browser-win">
+            <div class="browser-bar">
+              <div class="bwin-dots"><span></span><span></span><span></span></div>
+              <div class="bwin-url">calendar.google.com</div>
+              <div class="bwin-exts">
+                <div class="caddy-ext-icon">CV</div>
+              </div>
+            </div>
+            <div class="btabs">
+              <div class="btab btab-active"><span class="btab-fav">G</span><span class="btab-title">Google Calendar</span></div>
+              <div class="btab"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
+            </div>
+            <div class="bwin-body restore-bwin-body">
+              <div class="restore-cal-row">
+                <span class="restore-cal-time">2:57</span>
+                <div class="restore-cal-block restore-cal-block-large">
+                  <div class="restore-cal-title">ECON Midterm Study</div>
+                  <div class="restore-cal-sub">3:00 &ndash; 5:00 PM</div>
+                  <div class="restore-cal-sub restore-cal-location">Library Study Room</div>
+                </div>
+              </div>
+            </div>
+            <!-- Notification pops from CV extension icon (top-right) -->
+            <div class="corner-notif" id="corner-notif">
+              <div class="corner-badge">CV</div>
+              <div class="corner-notif-text">
+                <div class="corner-title">ECON Midterm &middot; in 3 min</div>
+                <div class="corner-sub">3 tabs ready to restore</div>
+              </div>
             </div>
           </div>
+          <!-- Full notification expands below -->
+          <div class="caddy-notif" id="caddy-notif">
+            <div class="notif-top">
+              <div class="notif-badge">CV</div>
+              <div class="notif-app">Caddy Vault</div>
+              <div class="notif-time">now</div>
+            </div>
+            <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
+            <div class="notif-sub">3 matching tabs ready to restore</div>
+            <div class="notif-actions" id="notif-actions">
+              <button class="notif-btn-primary" id="restore-btn">Restore All</button>
+              <button class="notif-btn-ghost">Dismiss</button>
+            </div>
+            <div class="notif-success" id="notif-success">
+              <span class="success-check">&#10003;</span> 3 tabs restored
+            </div>
+          </div>
+          <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
         </div>
-        <div class="caddy-notif" id="caddy-notif">
-          <div class="notif-top">
-            <div class="notif-badge">CV</div>
-            <div class="notif-app">Caddy Vault</div>
-            <div class="notif-time">now</div>
-          </div>
-          <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
-          <div class="notif-sub">3 matching tabs ready to restore</div>
-          <div class="notif-actions" id="notif-actions">
-            <button class="notif-btn-primary" id="restore-btn">Restore All</button>
-            <button class="notif-btn-ghost">Dismiss</button>
-          </div>
-          <div class="notif-success" id="notif-success">
-            <span class="success-check">&#10003;</span> 3 tabs restored
-          </div>
-        </div>
-        <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
-      </div>
 
+      </div>
     </div>
   </section>
 
   <!-- TRUST STRIP -->
   <div class="trust-strip">
-    <span class="trust-item">Works entirely offline</span>
+    <span class="trust-item">&#11041; Works entirely offline</span>
     <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">No account required</span>
+    <span class="trust-item">&#11041; No account required</span>
     <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">Data never leaves your device</span>
+    <span class="trust-item">&#11041; Your data never leaves your device</span>
     <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">Built for students &amp; researchers</span>
+    <span class="trust-item">&#11041; Built for students &amp; researchers</span>
   </div>
 
   <!-- DIVIDER -->
@@ -307,9 +311,12 @@
     <div class="container container-narrow">
       <p class="section-eyebrow">Why Caddy exists</p>
       <blockquote class="editorial-pull reveal">
-        "You find the right tabs. Then life happens and they're gone."
+        "You spend an hour finding the perfect sources. Then life happens.
+        By the time you open your laptop for the study block,
+        every tab is gone and you're Googling the same things again."
       </blockquote>
       <p class="editorial-body reveal">
+        Every tab manager lets you <em>store</em> tabs. None of them help you <em>reuse</em> them.
         Caddy is the memory layer your browser never had.
       </p>
     </div>
@@ -375,7 +382,7 @@
 
       <div class="pricing-single">
         <div class="pricing-card pricing-featured reveal">
-          <div class="plan-badge">Free during early access</div>
+          <div class="plan-badge">Free &mdash; No credit card</div>
           <div class="plan-tier">Everything. Free.</div>
           <div class="plan-price">$0</div>
           <div class="plan-interval">no credit card, no account</div>
@@ -399,8 +406,9 @@
   <section class="cta-section" id="download">
     <div class="container container-narrow cta-inner">
       <h2 class="cta-headline reveal-heading">Stop losing your research.</h2>
+      <p class="cta-sub reveal">Install in seconds. Free, no strings.</p>
       <a href="#" class="btn-hero" target="_blank" rel="noopener">
-        Get Early Access
+        Add to Chrome &mdash; It's Free
       </a>
       <p class="cta-note">No credit card &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
     </div>

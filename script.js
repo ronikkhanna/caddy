@@ -1,14 +1,3 @@
-// ── Intro screen ──
-(function () {
-  const intro = document.getElementById('intro-screen');
-  if (!intro) return;
-  // 0.6s delay + 1.8s wipe = fully visible at ~2.4s, then hold briefly, fade starts at 3.6s
-  setTimeout(() => {
-    intro.classList.add('fade-out');
-    setTimeout(() => intro.classList.add('gone'), 900);
-  }, 3600);
-})();
-
 // ── Hamburger / Mobile Nav ──
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
