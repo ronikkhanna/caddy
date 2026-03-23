@@ -1826,7 +1826,7 @@ em { font-style: italic; }
 .splash {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse 120% 100% at 40% 60%, #2B1A6B 0%, #0D0818 55%, #1A0A1E 100%);
+  background: radial-gradient(ellipse 140% 120% at 30% 70%, rgba(235, 50, 145, 0.55) 0%, rgba(190, 60, 200, 0.35) 40%, #0D080F 75%);
   z-index: 9999;
   display: flex;
   align-items: center;
