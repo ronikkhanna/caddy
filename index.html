@@ -3,24 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caddy: Your browser, remembered.</title>
-  <meta name="description" content="Caddy quietly archives your inactive tabs, then surfaces them the moment you need them. Search your vault. Restore in one click.">
+  <title>Caddy Vault — Your Automated Workflow Caddy</title>
+  <meta name="description" content="Caddy Vault quietly archives your inactive tabs, then surfaces them the moment you need them. Search your vault. Restore in one click.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- SPLASH SCREEN -->
+  <div id="splash" class="splash">
+    <div class="splash-words" id="splash-words">
+      <span class="splash-word">Never</span>
+      <span class="splash-word">worry</span>
+      <span class="splash-word">about</span>
+      <span class="splash-word">your</span>
+      <span class="splash-word">tabs</span>
+      <span class="splash-word">again</span>
+    </div>
+  </div>
+
   <div class="blob3" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Caddy</a>
+      <a href="#" class="nav-logo">Caddy Vault</a>
       <ul class="nav-links">
         <li><a href="#how">How it works</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
-      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+      <a href="#download" class="nav-cta">Download</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -32,23 +45,29 @@
     <ul>
       <li><a href="#how">How it works</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#waitlist">Join Waitlist</a></li>
+      <li><a href="#download">Download</a></li>
     </ul>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO — centered, minimal -->
   <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-<h1 class="hero-headline">
-          Your browser,<br>
-          <em>remembered.</em>
-        </h1>
-        <p class="hero-one-liner">Archive. Search. Restore. Your tabs, exactly when you need them.</p>
-        <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
-      </div>
+    <div class="hero-center">
+      <p class="hero-chrome-badge">A Chrome Extension</p>
+      <h1 class="hero-headline">Your Automated<br><em>Workflow Caddy</em></h1>
+      <p class="hero-one-liner">Archive. Search. Restore. Your tabs, exactly when you need them.</p>
+      <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
+    </div>
 
-      <!-- 3-Step Demo -->
+    <!-- Demo scroll button -->
+    <div class="demo-cta-area">
+      <p class="demo-cta-label">demo here</p>
+      <button class="demo-circle-btn" id="demo-scroll-btn">&#8595;</button>
+    </div>
+  </section>
+
+  <!-- DEMO SECTION — full page on desktop -->
+  <section class="demo-section" id="demo">
+    <div class="demo-section-inner">
       <div class="demo-wrap">
         <div class="demo-nav">
           <button class="demo-dot active" data-step="0"></button>
@@ -89,28 +108,27 @@
           <div class="stage-label">II. Smart Groups</div>
           <div class="popup-mockup">
             <div class="mock-header">
-              <span class="mock-wordmark">Caddy</span>
+              <span class="mock-wordmark">Caddy Vault</span>
               <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
-            <!-- Groups strip -->
             <div class="mock-groups-strip">
               <button class="mock-group-btn">
-                <span class="mock-diamond">◆</span>
+                <span class="mock-diamond">&#9670;</span>
                 <span class="mock-group-name">Uni</span>
                 <span class="mock-group-count">4 tabs</span>
               </button>
               <button class="mock-group-btn">
-                <span class="mock-diamond">◆</span>
+                <span class="mock-diamond">&#9670;</span>
                 <span class="mock-group-name">Research</span>
                 <span class="mock-group-count">3 tabs</span>
               </button>
               <button class="mock-group-btn mock-group-btn-active">
-                <span class="mock-diamond">◆</span>
+                <span class="mock-diamond">&#9670;</span>
                 <span class="mock-group-name">YouTube</span>
                 <span class="mock-group-count">2 tabs</span>
               </button>
               <button class="mock-group-btn">
-                <span class="mock-diamond">◆</span>
+                <span class="mock-diamond">&#9670;</span>
                 <span class="mock-group-name">Social</span>
                 <span class="mock-group-count">5 tabs</span>
               </button>
@@ -141,10 +159,10 @@
 
         <!-- Stage 3: Search -->
         <div class="demo-stage" id="demo-2">
-          <div class="stage-label">II. Search</div>
+          <div class="stage-label">III. Search</div>
           <div class="popup-mockup">
             <div class="mock-header">
-              <span class="mock-wordmark">Caddy</span>
+              <span class="mock-wordmark">Caddy Vault</span>
               <div class="mock-live"><span class="mock-dot"></span><span>Live</span></div>
             </div>
             <div class="mock-search">
@@ -212,11 +230,10 @@
               </div>
             </div>
           </div>
-          <!-- Notification slides up -->
           <div class="caddy-notif" id="caddy-notif">
             <div class="notif-top">
               <div class="notif-badge">CV</div>
-              <div class="notif-app">Caddy</div>
+              <div class="notif-app">Caddy Vault</div>
               <div class="notif-time">now</div>
             </div>
             <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
@@ -236,17 +253,6 @@
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <div class="trust-strip">
-    <span class="trust-item">&#11041; Works entirely offline</span>
-    <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">&#11041; No account required</span>
-    <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">&#11041; Your data never leaves your device</span>
-    <span class="trust-sep trust-item">&middot;</span>
-    <span class="trust-item">&#11041; Built for students &amp; researchers</span>
-  </div>
-
   <!-- DIVIDER -->
   <div class="rule-divider"><span>&#10022;</span></div>
 
@@ -254,7 +260,7 @@
   <section class="how" id="how">
     <div class="container">
       <div class="how-header">
-        <p class="section-eyebrow">The Caddy</p>
+        <p class="section-eyebrow">Caddy Vault</p>
         <h2 class="reveal-heading">Three things. Done quietly.</h2>
       </div>
 
@@ -280,7 +286,7 @@
           <div class="step-number">III.</div>
           <div class="step-body">
             <h3>Restore</h3>
-            <p>Caddy reads your calendar and has the right tabs ready before you sit down.</p>
+            <p>Caddy Vault reads your calendar and has the right tabs ready before you sit down.</p>
           </div>
         </div>
 
@@ -294,15 +300,9 @@
   <!-- THE PROBLEM -->
   <section class="editorial">
     <div class="container container-narrow">
-      <p class="section-eyebrow">Why Caddy exists</p>
-      <blockquote class="editorial-pull reveal">
-        "You spend an hour finding the perfect sources. Then life happens.
-        By the time you open your laptop for the study block,
-        every tab is gone and you're Googling the same things again."
-      </blockquote>
+      <p class="section-eyebrow">Why Caddy Vault exists</p>
       <p class="editorial-body reveal">
-        Every tab manager lets you <em>store</em> tabs. None of them help you <em>reuse</em> them.
-        Caddy is the memory layer your browser never had.
+        Every tab manager lets you <em>store</em> tabs — Caddy Vault is the only one that brings them back exactly when you need them.
       </p>
     </div>
   </section>
@@ -316,7 +316,7 @@
       <p class="section-eyebrow">How it compares</p>
       <h2 class="compare-headline reveal-heading">Other tools store tabs. None of them resurface them.</h2>
       <div class="compare-table-wrap reveal">
-        <table class="compare-table">
+        <table class="compare-table compare-table-sm">
           <thead>
             <tr>
               <th></th>
@@ -345,7 +345,7 @@
               <td class="c-partial">~</td>
             </tr>
             <tr class="caddyvault-row">
-              <td><strong>Caddy</strong></td>
+              <td><strong>Caddy Vault</strong></td>
               <td class="c-yes">&#10003;</td>
               <td class="c-yes">&#10003;</td>
               <td class="c-yes">&#10003;</td>
@@ -379,7 +379,7 @@
             <li>Smart reminders with tab auto-match</li>
             <li>Everything stays in your browser</li>
           </ul>
-          <a href="#waitlist" class="btn-plan btn-plan-gold">Join the Waitlist</a>
+          <a href="#download" class="btn-plan btn-plan-gold">Download the Extension</a>
         </div>
       </div>
 
@@ -387,29 +387,25 @@
     </div>
   </section>
 
-  <!-- WAITLIST CTA -->
-  <section class="cta-section" id="waitlist">
+  <!-- DOWNLOAD CTA -->
+  <section class="cta-section" id="download">
     <div class="container container-narrow cta-inner">
       <h2 class="cta-headline reveal-heading">Stop losing your research.</h2>
-      <p class="cta-sub reveal">First to install when it ships. Free, no strings.</p>
-      <form class="waitlist-form" id="waitlist-form">
-        <input type="email" class="waitlist-input" id="waitlist-email" name="email" placeholder="your@email.com" required>
-        <button type="submit" class="btn-hero waitlist-btn" id="waitlist-btn">Request Early Access</button>
-      </form>
-      <p class="cta-note" id="waitlist-confirm">No credit card &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
+      <a href="#" class="btn-hero download-btn">Download the Extension</a>
+      <p class="cta-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-wordmark">Caddy</div>
+      <div class="footer-wordmark">Caddy Vault</div>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Support</a>
       </div>
-      <p class="footer-copy">&#169; 2026 Caddy</p>
+      <p class="footer-copy">&#169; 2026 Caddy Vault &nbsp;&middot;&nbsp; Founded by Ronik Khanna</p>
     </div>
   </footer>
 

@@ -55,7 +55,7 @@ body::after {
 body::before {
   width: 600px;
   height: 600px;
-  background: rgba(139, 92, 246, 0.18);
+  background: rgba(190, 60, 240, 0.32);
   top: -100px;
   left: -100px;
   animation: blob1 16s ease-in-out infinite;
@@ -64,7 +64,7 @@ body::before {
 body::after {
   width: 500px;
   height: 500px;
-  background: rgba(219, 39, 119, 0.13);
+  background: rgba(235, 50, 145, 0.28);
   bottom: 10%;
   right: -80px;
   animation: blob2 18s ease-in-out infinite;
@@ -78,7 +78,7 @@ body::after {
   pointer-events: none;
   width: 450px;
   height: 450px;
-  background: rgba(167, 70, 230, 0.12);
+  background: rgba(210, 70, 230, 0.24);
   top: 45%;
   left: 30%;
   animation: blob3 20s ease-in-out infinite;
@@ -271,18 +271,27 @@ em { font-style: italic; }
 
 /* ── Hero ── */
 .hero {
-  padding: 90px 0 48px;
-  background-image:
-    radial-gradient(ellipse 70% 60% at 60% 20%, rgba(100, 60, 200, 0.04), transparent);
+  padding: 100px 0 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 62vh;
+  justify-content: center;
 }
 
+/* kept for any legacy references */
 .hero-inner {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 32px;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 64px;
+}
+
+.hero-center {
+  max-width: 680px;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -295,13 +304,24 @@ em { font-style: italic; }
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
 }
 
+.hero-chrome-badge {
+  font-size: 11px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+  opacity: 0.85;
+  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards;
+}
+
 .hero-headline {
-  font-size: clamp(44px, 6vw, 72px);
+  font-size: clamp(38px, 5.5vw, 64px);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -1px;
   color: var(--black);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  text-align: center;
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
 }
 
@@ -315,10 +335,11 @@ em { font-style: italic; }
 }
 
 .hero-one-liner {
-  font-size: 20px;
+  font-size: 19px;
   color: var(--text-mid);
   line-height: 1.5;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+  text-align: center;
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
 }
 
@@ -1776,5 +1797,215 @@ em { font-style: italic; }
 
   .pricing-card {
     padding: 24px 16px;
+  }
+}
+
+/* ════════════════════════════════════════
+   SPLASH SCREEN
+   ════════════════════════════════════════ */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #0A080F;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25em;
+  padding: 0 24px;
+  max-width: 800px;
+}
+
+.splash-word {
+  font-family: var(--font);
+  font-size: clamp(26px, 4.5vw, 52px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--gold-light);
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash-word.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ════════════════════════════════════════
+   HERO CENTERED — new layout
+   ════════════════════════════════════════ */
+
+/* Demo CTA button area */
+.demo-cta-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 52px;
+  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.0s backwards;
+}
+
+.demo-cta-label {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.demo-circle-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-light);
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  animation: circle-float 2.8s ease-in-out infinite;
+  line-height: 1;
+}
+
+.demo-circle-btn:hover {
+  background: rgba(212, 175, 55, 0.14);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.25);
+}
+
+@keyframes circle-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+/* ════════════════════════════════════════
+   DEMO SECTION — full page on desktop
+   ════════════════════════════════════════ */
+.demo-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background-image: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100, 60, 200, 0.05), transparent);
+}
+
+.demo-section-inner {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* In the demo section, override wrap sizing */
+.demo-section .demo-wrap {
+  width: 100%;
+  max-width: 520px;
+  animation: none;
+}
+
+.demo-section .demo-stage,
+.demo-section .demo-stage.active {
+  height: 460px;
+}
+
+/* Download CTA button */
+.download-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Slightly smaller comparison table */
+.compare-table-sm .compare-table th,
+.compare-table-sm th {
+  font-size: 12px;
+  padding: 10px 14px;
+}
+
+.compare-table-sm td,
+.compare-table-sm .compare-table td {
+  font-size: 15px;
+  padding: 12px 14px;
+}
+
+/* ════════════════════════════════════════
+   MOBILE OVERRIDES for new layout
+   ════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .hero {
+    padding: 72px 0 44px;
+    min-height: auto;
+  }
+
+  .demo-section {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+
+  .demo-section .demo-stage,
+  .demo-section .demo-stage.active {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 56px 0 36px;
+  }
+
+  .hero-center {
+    padding: 0 20px;
+  }
+
+  .hero-chrome-badge {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .hero-headline {
+    font-size: clamp(30px, 8.5vw, 44px);
+    letter-spacing: -0.5px;
+  }
+
+  .hero-one-liner {
+    font-size: 17px;
+  }
+
+  .demo-cta-area {
+    margin-top: 36px;
+  }
+
+  .demo-circle-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .demo-section {
+    padding: 48px 16px;
+  }
+
+  .demo-section-inner {
+    padding: 0;
+  }
+
+  .splash-word {
+    font-size: clamp(22px, 6.5vw, 36px);
   }
 }
