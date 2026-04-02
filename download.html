@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Caddy Vault — Chrome Extension</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:      #0A080F;
+      --white:      #FDFCFF;
+      --gold:       #B8960C;
+      --text:       #0A080F;
+      --text-muted: #7A7490;
+      --border:     rgba(10, 8, 15, 0.1);
+      --font:       'EB Garamond', 'Garamond', 'Times New Roman', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    em { font-style: italic; }
+    code {
+      background: rgba(10, 8, 15, 0.05);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 0.95em;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 32px;
+    }
+
+    .nav {
+      background: rgba(253, 252, 255, 0.92);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      text-align: center;
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .nav-logo em {
+      color: var(--gold);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .step {
+      display: flex;
+      gap: 24px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .step-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .step-content p {
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .code-block {
+      background: var(--black);
+      color: #d4af37;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: 12px;
+      overflow-x: auto;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: 1px solid;
+      font-family: var(--font);
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--black);
+    }
+
+    .tip {
+      background: rgba(184, 150, 12, 0.08);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .tip strong {
+      color: var(--black);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      .step { gap: 16px; }
+      .container { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="nav-logo">Caddy <em>Vault</em></div>
+  </div>
+
+  <div class="container">
+
+    <h1>Download & Install</h1>
+    <p class="hero-sub">Get Caddy Vault running in 2 minutes</p>
+
+    <div class="steps">
+
+      <!-- Step 1: Download -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h2>Download CaddyVault</h2>
+          <p>Get the complete extension package. Everything you need is included.</p>
+          <div class="button-group">
+            <a href="downloads/caddyvault-v1.0.0.zip" class="btn btn-primary" download>Download (26 KB)</a>
+            <a href="https://github.com/your-username/caddyvault" class="btn btn-secondary">View on GitHub</a>
+          </div>
+          <p style="margin-top: 12px; color: var(--text-muted); font-size: 16px;"><em>Or clone:</em></p>
+          <div class="code-block">git clone https://github.com/your-username/caddyvault.git</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Run Setup Script -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h2>Run the Setup Script</h2>
+          <p>Extract the ZIP, then run the one-line setup to generate icons automatically.</p>
+          <p><strong>Mac/Linux:</strong></p>
+          <div class="code-block">bash setup.sh</div>
+          <p style="margin-top: 12px;"><strong>Windows:</strong></p>
+          <div class="code-block">setup.bat</div>
+        </div>
+      </div>
+
+      <!-- Step 3: Load into Chrome -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h2>Load into Chrome</h2>
+          <ol style="margin-left: 20px; color: var(--text-muted);">
+            <li>Open <code>chrome://extensions/</code></li>
+            <li>Turn ON <strong>Developer mode</strong> (top-right)</li>
+            <li>Click <strong>Load unpacked</strong></li>
+            <li>Select the <code>caddyvault/</code> folder</li>
+          </ol>
+          <div class="tip">
+            <strong>That's it!</strong> The CV icon appears in your toolbar. Done!
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Optional Calendar -->
+    <div style="background: rgba(184, 150, 12, 0.04); padding: 32px; border-radius: 8px; margin-bottom: 40px;">
+      <h2 style="margin-bottom: 12px;">Optional: Google Calendar Integration</h2>
+      <p style="color: var(--text-muted); margin-bottom: 16px;">
+        Connect your Google Calendar to get automatic study reminders with one-click tab restore.
+      </p>
+      <a href="/INSTALL.md" class="btn btn-secondary">View Calendar Setup Guide</a>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-bottom: 40px;">
+      <h2 style="margin-bottom: 20px;">Troubleshooting</h2>
+
+      <div style="margin-bottom: 24px;">
+        <h3 style="margin-bottom: 8px; font-size: 18px;">Icons not showing?</h3>
+        <p style="color: var(--text-muted);">Make sure the 3 PNG files are in the <code>icons/</code> folder and named exactly: <code>icon16.png</code>, <code>icon48.png</code>, <code>icon128.png</code></p>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <h3 style="margin-bottom: 8px; font-size: 18px;">Extension won't load?</h3>
+        <p style="color: var(--text-muted);">Verify that Developer mode is ON and that you selected the <code>caddyvault/</code> folder (not the parent folder).</p>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 8px; font-size: 18px;">Still stuck?</h3>
+        <p style="color: var(--text-muted);">Open an issue on <a href="https://github.com/your-username/caddyvault/issues" style="color: var(--gold);">GitHub</a> or check the <a href="/INSTALL.md" style="color: var(--gold);">full documentation</a>.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>CaddyVault is free and open source · No account required · Your data never leaves your browser</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
