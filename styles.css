@@ -144,7 +144,7 @@ em { font-style: italic; }
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  color: var(--black);
+  color: var(--gold);
 }
 
 .nav-logo em {
@@ -289,13 +289,6 @@ em { font-style: italic; }
   justify-content: space-between;
 }
 
-/* kept for any legacy references */
-.hero-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
 .hero-center {
   width: 100%;
   max-width: 780px;
@@ -305,15 +298,6 @@ em { font-style: italic; }
   align-items: center;
   text-align: center;
   margin: 0 auto;
-}
-
-.hero-eyebrow {
-  font-size: 13px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
 }
 
 .hero-chrome-badge {
@@ -345,13 +329,11 @@ em { font-style: italic; }
   }
 }
 
-/* Gold gradient on "remembered." */
+/* Italic black on hero "Workflow Caddy" */
 .hero-headline em {
   font-style: italic;
-  background: linear-gradient(135deg, #E8C94E 0%, #C39E37 40%, #D4AF37 70%, #B8960C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  color: var(--black);
 }
 
 .hero-one-liner {
@@ -1209,6 +1191,29 @@ em { font-style: italic; }
   gap: 8px;
   margin-bottom: 14px;
   justify-content: center;
+  align-items: center;
+}
+
+.demo-arrow {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.5;
+  padding: 4px 6px;
+  transition: opacity 0.15s;
+  line-height: 1;
+}
+
+.demo-arrow:hover { opacity: 1; }
+
+.demo-cursor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.18s, left 0.5s cubic-bezier(0.16,1,0.3,1), top 0.5s cubic-bezier(0.16,1,0.3,1);
 }
 
 .demo-dot {
@@ -1417,11 +1422,76 @@ em { font-style: italic; }
 
 /* ── Calendar Mock (Stage 3) — dark gold theme ── */
 .cal-mock {
+  position: relative;
   background: #09080F;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 0 0 1px rgba(195,158,55,0.2), 0 24px 60px rgba(10,8,15,0.35);
   margin-bottom: 12px;
+}
+
+/* ── Corner notification (pops from CV icon) ── */
+.corner-notif {
+  position: absolute;
+  top: 36px;
+  right: 6px;
+  background: #09080F;
+  border: 1px solid rgba(195,158,55,0.4);
+  border-radius: 10px;
+  padding: 5px 10px 5px 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0;
+  transform: translateY(6px) scale(0.88);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-notif.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.corner-notif.dismiss {
+  opacity: 0;
+  transform: scale(0.6) translateY(6px);
+  transform-origin: bottom right;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.corner-badge {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  background: #C39E37;
+  color: #09080F;
+  font-size: 7px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.corner-notif-text { min-width: 0; }
+
+.corner-title {
+  font-size: 10px;
+  color: #EDE8D5;
+  font-weight: 500;
+  white-space: nowrap;
+  font-family: -apple-system, sans-serif;
+}
+
+.corner-sub {
+  font-size: 9px;
+  color: rgba(195,158,55,0.75);
+  white-space: nowrap;
+  font-family: -apple-system, sans-serif;
+  margin-top: 1px;
 }
 
 .cal-header {
@@ -1636,6 +1706,18 @@ em { font-style: italic; }
   color: #ea4335;
   font-weight: 600;
   font-size: 10px;
+}
+
+.cal-event-location {
+  font-size: 11px;
+  color: rgba(195,158,55,0.5);
+  font-family: var(--font);
+  margin-top: 1px;
+}
+
+.cal-fav {
+  background: rgba(66, 133, 244, 0.25) !important;
+  color: #7aacf7 !important;
 }
 
 /* ── Notification success state ── */
@@ -1895,6 +1977,15 @@ em { font-style: italic; }
   animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.0s backwards;
 }
 
+.demo-cta-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.0s backwards;
+}
+
 .demo-cta-label {
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -1930,7 +2021,7 @@ em { font-style: italic; }
 }
 
 /* ════════════════════════════════════════
-   DEMO SECTION — full page on desktop
+   DEMO SECTION
    ════════════════════════════════════════ */
 .demo-section {
   min-height: 100vh;
@@ -1947,7 +2038,6 @@ em { font-style: italic; }
   margin: 0 auto;
 }
 
-/* In the demo section, override wrap sizing */
 .demo-section .demo-wrap {
   width: 100%;
   max-width: 520px;
@@ -1957,42 +2047,6 @@ em { font-style: italic; }
 .demo-section .demo-stage,
 .demo-section .demo-stage.active {
   height: 460px;
-}
-
-/* ── Demo Start Screen ── */
-.demo-start-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  padding: 60px 0;
-}
-
-.demo-start-hint {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.demo-start-btn {
-  font-family: var(--font);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--black);
-  background: transparent;
-  border: 1.5px solid var(--gold-light);
-  padding: 14px 40px;
-  border-radius: 3px;
-  cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-
-.demo-start-btn:hover {
-  background: var(--gold-light);
-  color: var(--black);
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.3);
 }
 
 /* Download CTA button */
@@ -2085,39 +2139,6 @@ em { font-style: italic; }
    DEMO V2 — Extension popup mockup + arrows
    ══════════════════════════════════════════ */
 
-/* ── Triangle arrows ── */
-.demo-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 10px;
-  color: rgba(10, 8, 15, 0.18);
-  cursor: pointer;
-  padding: 12px 5px;
-  z-index: 10;
-  line-height: 1;
-  transition: color 0.2s;
-  font-family: sans-serif;
-}
-.demo-arrow:hover { color: rgba(10, 8, 15, 0.48); }
-.demo-arrow.cursor-click { color: rgba(10, 8, 15, 0.7); transform: translateY(-50%) scale(0.88); }
-.demo-arrow-l { left: 2px; }
-.demo-arrow-r { right: 2px; }
-
-/* ── Cursor ── */
-.demo-cursor {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0;
-  z-index: 200;
-  transition: opacity 0.18s;
-  top: 0;
-  left: 0;
-}
-.demo-cursor.clicking { transform: scale(0.82); }
-
 /* ── bwin-body-lg ── */
 .bwin-body-lg { height: 170px !important; }
 
@@ -2209,6 +2230,18 @@ em { font-style: italic; }
   animation: blink 1s step-end infinite;
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── See smart restore link ── */
+.search-smart-restore {
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold-light);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: opacity 0.4s ease;
+}
 
 /* ── Groups strip ── */
 .ext-groups-strip {
@@ -2327,3 +2360,86 @@ em { font-style: italic; }
   background: rgba(195,158,55,0.13) !important;
   border-color: rgba(195,158,55,0.48) !important;
 }
+
+/* ── Restore stage: extension popup with reminder bar ── */
+.ext-popup-restore {
+  max-height: 260px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.ext-popup-restore.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ext-reminder-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, rgba(195, 158, 55, 0.1), rgba(100, 60, 200, 0.06));
+  border-top: 1px solid rgba(195, 158, 55, 0.35);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.ext-reminder-bar.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ext-reminder-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ext-reminder-icon {
+  color: #C39E37;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ext-reminder-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ext-reminder-event {
+  font-size: 12px;
+  font-weight: 500;
+  color: #EDE8D5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ext-reminder-meta {
+  font-size: 9px;
+  color: rgba(195, 158, 55, 0.55);
+  letter-spacing: 0.2px;
+}
+
+.ext-reminder-restore {
+  flex-shrink: 0;
+  background: #C39E37;
+  color: #09080F;
+  border: none;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  animation: notif-pulse 2s ease-in-out infinite;
+}
+.ext-reminder-restore:hover { opacity: 0.85; }
