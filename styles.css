@@ -462,24 +462,28 @@ button {
   width: 100%;
 }
 
-/* ── Browser window mockup (Stage 1) ── */
+/* ───────────────────────────────────────────
+   Demo mockups — light theme, matches real popup
+   ─────────────────────────────────────────── */
+
+/* ── Browser window (Stage 1) ── */
 .browser-win {
-  background: #1a1625;
+  background: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
+  border: 1px solid var(--border);
   box-shadow:
     0 1px 2px rgba(26, 20, 16, 0.04),
-    0 12px 32px rgba(26, 20, 16, 0.12),
-    0 0 0 1px rgba(154, 125, 40, 0.18);
+    0 12px 32px rgba(26, 20, 16, 0.08);
 }
 
 .browser-bar {
-  background: #13101e;
+  background: var(--bg-soft);
   padding: 10px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(195, 158, 55, 0.1);
+  border-bottom: 1px solid var(--border);
 }
 
 .bwin-dots {
@@ -492,16 +496,17 @@ button {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(26, 20, 16, 0.1);
 }
 
 .bwin-url {
   flex: 1;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 4px;
   padding: 4px 10px;
   font-size: 11px;
-  color: rgba(237, 232, 213, 0.4);
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -515,8 +520,8 @@ button {
   width: 24px;
   height: 24px;
   border-radius: 5px;
-  background: #C39E37;
-  color: #09080F;
+  background: var(--gold);
+  color: var(--bg);
   font-size: 9px;
   font-weight: 700;
   display: flex;
@@ -528,8 +533,8 @@ button {
   display: flex;
   padding: 8px 10px 0;
   gap: 2px;
-  background: #13101e;
-  border-bottom: 1px solid rgba(195, 158, 55, 0.08);
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -539,16 +544,16 @@ button {
   gap: 6px;
   padding: 6px 10px;
   border-radius: 6px 6px 0 0;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(26, 20, 16, 0.04);
   font-size: 11px;
-  color: rgba(237, 232, 213, 0.4);
+  color: var(--text-muted);
   max-width: 120px;
   transition: opacity 0.4s, transform 0.4s, max-width 0.4s, padding 0.4s;
 }
 
 .btab.btab-active {
-  background: #1a1625;
-  color: rgba(237, 232, 213, 0.8);
+  background: var(--bg-card);
+  color: var(--text);
 }
 
 .btab.archiving-out {
@@ -563,8 +568,8 @@ button {
   width: 14px;
   height: 14px;
   border-radius: 2px;
-  background: rgba(195, 158, 55, 0.2);
-  color: #C39E37;
+  background: var(--gold-soft);
+  color: var(--gold);
   font-size: 9px;
   display: flex;
   align-items: center;
@@ -584,17 +589,18 @@ button {
   align-items: center;
   justify-content: center;
   padding: 16px;
+  background: var(--bg-card);
 }
 
 .bwin-body-lg { height: 170px !important; }
 
 .archive-toast {
-  background: rgba(195, 158, 55, 0.1);
-  border: 1px solid rgba(195, 158, 55, 0.25);
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-line);
   border-radius: 6px;
   padding: 10px 16px;
   font-size: 13px;
-  color: #C39E37;
+  color: var(--gold-deep);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -608,21 +614,21 @@ button {
   transform: translateY(0);
 }
 
-.toast-glyph { font-size: 14px; }
+.toast-glyph { font-size: 14px; color: var(--gold); }
 
-/* ── Extension popup mockup (Stages 2–3) ── */
+/* ── Extension popup mockup (Stages 2–3) — matches real popup ── */
 .ext-popup {
-  background: #09080F;
+  background: var(--bg);
   border-radius: 12px;
-  border: 1px solid rgba(195, 158, 55, 0.18);
+  border: 1px solid var(--border);
   box-shadow:
     0 1px 2px rgba(26, 20, 16, 0.04),
-    0 12px 32px rgba(26, 20, 16, 0.12);
+    0 12px 32px rgba(26, 20, 16, 0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   font-family: var(--font);
-  color: #EDE8D5;
+  color: var(--text);
   flex: 1;
   min-height: 0;
 }
@@ -632,30 +638,30 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 11px 16px 9px;
-  border-bottom: 1px solid rgba(195, 158, 55, 0.12);
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
-  background: #09080F;
+  background: var(--bg);
 }
 
-.ext-wordmark { font-size: 17px; font-weight: 500; color: #EDE8D5; letter-spacing: 0.3px; }
-.ext-wordmark em { font-style: italic; color: #C39E37; }
+.ext-wordmark { font-size: 17px; font-weight: 500; color: var(--text); letter-spacing: 0.2px; }
+.ext-wordmark em { font-style: italic; font-weight: 400; color: var(--gold); }
 
 .ext-live {
   display: flex;
   align-items: center;
   gap: 5px;
-  background: rgba(195, 158, 55, 0.06);
-  border: 1px solid rgba(195, 158, 55, 0.12);
+  background: transparent;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 3px 8px 3px 7px;
   font-size: 10px;
-  color: rgba(237, 232, 213, 0.38);
+  color: var(--text-muted);
   font-family: var(--font);
 }
 
 .ext-live-dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: #C39E37;
+  background: var(--gold);
   animation: breathe 2.5s ease-in-out infinite;
 }
 
@@ -669,36 +675,36 @@ button {
   align-items: center;
   gap: 9px;
   margin: 10px 12px;
-  background: #110D1C;
-  border: 1px solid rgba(195, 158, 55, 0.12);
-  border-radius: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 8px 12px;
   flex-shrink: 0;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .ext-search-bar-active {
-  border-color: rgba(195, 158, 55, 0.35);
-  box-shadow: 0 0 0 3px rgba(195, 158, 55, 0.06);
+  border-color: var(--gold-line);
+  box-shadow: 0 0 0 3px var(--gold-soft);
 }
 
-.ext-search-glyph { font-size: 11px; color: #C39E37; flex-shrink: 0; }
+.ext-search-glyph { font-size: 11px; color: var(--gold); flex-shrink: 0; }
 
 .ext-search-placeholder {
   font-size: 14px; font-style: italic;
-  color: rgba(237, 232, 213, 0.18);
+  color: var(--text-dim);
   font-family: var(--font);
 }
 
 .ext-search-typing {
   font-size: 14px; font-style: italic;
-  color: #EDE8D5; font-family: var(--font);
+  color: var(--text); font-family: var(--font);
 }
 
 .ext-cursor-blink {
   display: inline-block;
   width: 1.5px; height: 14px;
-  background: #C39E37;
+  background: var(--gold);
   vertical-align: middle;
   margin-left: 1px;
   animation: blink 1s step-end infinite;
@@ -714,7 +720,7 @@ button {
   gap: 5px;
   padding: 8px 12px;
   overflow-x: auto;
-  border-bottom: 1px solid rgba(195, 158, 55, 0.08);
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   scrollbar-width: none;
 }
@@ -726,10 +732,10 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  background: rgba(195, 158, 55, 0.06);
-  border: 1px solid rgba(195, 158, 55, 0.2);
-  border-radius: 7px;
-  padding: 5px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
   flex-shrink: 0;
   min-width: 52px;
   opacity: 0;
@@ -740,13 +746,13 @@ button {
 .ext-chip.visible { opacity: 1; transform: translateY(0); }
 
 .ext-chip.ext-chip-active {
-  background: rgba(195, 158, 55, 0.15);
-  border-color: rgba(195, 158, 55, 0.48);
+  background: var(--gold-soft);
+  border-color: var(--gold);
 }
 
-.ext-chip-icon  { font-size: 13px; color: #C39E37; line-height: 1; }
-.ext-chip-name  { font-size: 9px; letter-spacing: 0.7px; text-transform: uppercase; color: #C39E37; white-space: nowrap; }
-.ext-chip-count { font-size: 8px; color: rgba(237, 232, 213, 0.26); }
+.ext-chip-icon  { font-size: 12px; color: var(--gold); line-height: 1; }
+.ext-chip-name  { font-size: 9px; letter-spacing: 0.7px; text-transform: uppercase; color: var(--text); white-space: nowrap; }
+.ext-chip-count { font-size: 8px; color: var(--text-dim); }
 
 .ext-divider {
   display: flex;
@@ -759,13 +765,13 @@ button {
 .ext-divider span {
   flex: 1;
   height: 1px;
-  background: rgba(195, 158, 55, 0.08);
+  background: var(--border);
 }
 
 .ext-divider small {
   font-size: 9px;
   letter-spacing: 0.4px;
-  color: rgba(237, 232, 213, 0.2);
+  color: var(--text-dim);
   white-space: nowrap;
   font-family: var(--font);
 }
@@ -780,14 +786,14 @@ button {
 
 .ext-results-area.visible { display: flex; }
 .ext-results-area::-webkit-scrollbar { width: 2px; }
-.ext-results-area::-webkit-scrollbar-thumb { background: rgba(195, 158, 55, 0.18); }
+.ext-results-area::-webkit-scrollbar-thumb { background: var(--border); }
 
 .ext-tab-row {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 9px 14px;
-  border-bottom: 1px solid rgba(195, 158, 55, 0.05);
+  border-bottom: 1px solid var(--border-soft);
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.28s, transform 0.28s, background 0.1s;
@@ -795,20 +801,20 @@ button {
 }
 
 .ext-tab-row.visible { opacity: 1; transform: translateX(0); }
-.ext-tab-row:hover   { background: #110D1C; }
+.ext-tab-row:hover   { background: var(--bg-soft); }
 
 .ext-tab-fav {
-  width: 24px; height: 24px; border-radius: 4px;
-  background: #110D1C; border: 1px solid rgba(195, 158, 55, 0.12);
+  width: 24px; height: 24px; border-radius: 5px;
+  background: var(--bg-soft); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: #C39E37; flex-shrink: 0;
+  font-size: 11px; color: var(--gold); flex-shrink: 0;
 }
 
 .ext-tab-info { flex: 1; min-width: 0; }
 
 .ext-tab-title {
   font-size: 13px;
-  color: #EDE8D5;
+  color: var(--text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -817,23 +823,23 @@ button {
 
 .ext-tab-meta {
   font-size: 10px;
-  color: rgba(237, 232, 213, 0.36);
+  color: var(--text-muted);
 }
 
 .ext-restore-btn {
   font-family: var(--font);
   font-size: 11px;
-  color: #C39E37;
-  background: none;
-  border: 1px solid rgba(195, 158, 55, 0.28);
-  padding: 3px 9px;
-  border-radius: 3px;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 3px 10px;
+  border-radius: 999px;
   white-space: nowrap;
   flex-shrink: 0;
   transition: background 0.15s;
 }
 
-.ext-restore-btn:hover { background: rgba(195, 158, 55, 0.08); }
+.ext-restore-btn:hover { background: var(--gold-soft); }
 
 .ext-restore-all-row {
   padding: 10px 14px 12px;
@@ -848,29 +854,29 @@ button {
 .ext-restore-all-btn {
   width: 100%;
   padding: 9px 16px;
-  background: rgba(195, 158, 55, 0.08);
-  border: 1px solid rgba(195, 158, 55, 0.32);
-  border-radius: 5px;
-  color: #C39E37;
+  background: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 999px;
+  color: var(--bg);
   font-family: var(--font);
   font-size: 13px;
   font-style: italic;
-  transition: background 0.15s;
+  transition: background 0.15s, border-color 0.15s;
   letter-spacing: 0.2px;
 }
 
-.ext-restore-all-btn:hover { background: rgba(195, 158, 55, 0.16); }
+.ext-restore-all-btn:hover { background: #2e2620; border-color: #2e2620; }
 
-/* ── Calendar mockup (Stage 4) ── */
+/* ── Calendar mockup (Stage 4) — Google Calendar light ── */
 .cal-mock {
   position: relative;
-  background: #09080F;
+  background: var(--bg-card);
   border-radius: 12px;
   overflow: visible;
-  border: 1px solid rgba(195, 158, 55, 0.18);
+  border: 1px solid var(--border);
   box-shadow:
     0 1px 2px rgba(26, 20, 16, 0.04),
-    0 12px 32px rgba(26, 20, 16, 0.12);
+    0 12px 32px rgba(26, 20, 16, 0.08);
   margin-bottom: 12px;
 }
 
@@ -878,8 +884,8 @@ button {
   position: absolute;
   top: 36px;
   right: 6px;
-  background: #09080F;
-  border: 1px solid rgba(195, 158, 55, 0.4);
+  background: var(--bg-card);
+  border: 1px solid var(--gold);
   border-radius: 10px;
   padding: 5px 10px 5px 7px;
   display: flex;
@@ -888,7 +894,7 @@ button {
   opacity: 0;
   transform: translateY(6px) scale(0.88);
   transition: opacity 0.3s, transform 0.3s;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 6px 22px rgba(26, 20, 16, 0.12);
   pointer-events: none;
   z-index: 10;
 }
@@ -905,8 +911,8 @@ button {
   width: 17px;
   height: 17px;
   border-radius: 4px;
-  background: #C39E37;
-  color: #09080F;
+  background: var(--gold);
+  color: var(--bg);
   font-size: 7px;
   font-weight: 700;
   display: flex;
@@ -919,7 +925,7 @@ button {
 
 .corner-title {
   font-size: 10px;
-  color: #EDE8D5;
+  color: var(--text);
   font-weight: 500;
   white-space: nowrap;
   font-family: -apple-system, sans-serif;
@@ -927,13 +933,13 @@ button {
 
 .corner-sub {
   font-size: 9px;
-  color: rgba(195, 158, 55, 0.75);
+  color: var(--gold-deep);
   white-space: nowrap;
   font-family: -apple-system, sans-serif;
   margin-top: 1px;
 }
 
-.cal-body { padding: 8px 0; }
+.cal-body { padding: 8px 0; background: var(--bg-card); }
 
 .cal-row {
   display: grid;
@@ -945,22 +951,23 @@ button {
 .cal-time {
   font-size: 11px;
   font-family: var(--font);
-  color: rgba(237, 232, 213, 0.25);
+  color: var(--text-dim);
   padding: 4px 8px;
   text-align: right;
   padding-top: 6px;
 }
 
 .cal-slot {
-  border-top: 1px solid rgba(195, 158, 55, 0.08);
+  border-top: 1px solid var(--border-soft);
   height: 36px;
 }
 
 .cal-row-event { min-height: 60px; }
 
 .cal-event-block {
-  background: linear-gradient(135deg, rgba(195, 158, 55, 0.18), rgba(195, 158, 55, 0.08));
-  border: 1px solid rgba(195, 158, 55, 0.35);
+  background: var(--gold-soft);
+  border: 1px solid var(--gold);
+  border-left-width: 3px;
   border-radius: 4px;
   margin: 2px 8px 2px 0;
   padding: 6px 10px;
@@ -969,41 +976,41 @@ button {
 .cal-event-title {
   font-size: 13px;
   font-weight: 500;
-  color: #C39E37;
+  color: var(--gold-deep);
   font-family: var(--font);
 }
 
 .cal-event-sub {
   font-size: 11px;
-  color: rgba(195, 158, 55, 0.6);
+  color: var(--gold);
   font-family: var(--font);
 }
 
 .cal-event-location {
   font-size: 11px;
-  color: rgba(195, 158, 55, 0.5);
+  color: var(--text-muted);
   font-family: var(--font);
   margin-top: 1px;
 }
 
 .cal-time-now {
-  color: #ea4335;
+  color: #c0392b;
   font-weight: 600;
   font-size: 10px;
 }
 
 .cal-fav {
-  background: rgba(66, 133, 244, 0.25) !important;
-  color: #7aacf7 !important;
+  background: rgba(66, 133, 244, 0.18) !important;
+  color: #1a73e8 !important;
 }
 
-/* ── Caddy notification (Stage 4) ── */
+/* ── Caddy notification (Stage 4) — light system-style ── */
 .caddy-notif {
-  background: #09080F;
-  border: 1px solid rgba(195, 158, 55, 0.25);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 14px 16px;
-  box-shadow: 0 12px 28px rgba(26, 20, 16, 0.18);
+  box-shadow: 0 12px 28px rgba(26, 20, 16, 0.1);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.5s, transform 0.5s;
@@ -1022,8 +1029,8 @@ button {
   width: 20px;
   height: 20px;
   border-radius: 4px;
-  background: #C39E37;
-  color: #09080F;
+  background: var(--gold);
+  color: var(--bg);
   font-size: 8px;
   font-weight: 700;
   display: flex;
@@ -1033,25 +1040,25 @@ button {
 
 .notif-app {
   font-size: 12px;
-  color: rgba(237, 232, 213, 0.5);
+  color: var(--text-muted);
   flex: 1;
 }
 
 .notif-time {
   font-size: 10px;
-  color: rgba(237, 232, 213, 0.3);
+  color: var(--text-dim);
 }
 
 .caddy-notif .notif-title {
   font-size: 13px;
-  color: #EDE8D5;
+  color: var(--text);
   font-weight: 500;
   margin-bottom: 4px;
 }
 
 .caddy-notif .notif-sub {
   font-size: 11px;
-  color: rgba(195, 158, 55, 0.7);
+  color: var(--gold-deep);
   margin-bottom: 12px;
 }
 
@@ -1061,21 +1068,21 @@ button {
 }
 
 .notif-btn-primary {
-  background: #C39E37;
-  color: #09080F;
-  border: none;
-  border-radius: 4px;
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+  border-radius: 999px;
   padding: 6px 14px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font);
 }
 
 .notif-btn-ghost {
-  background: none;
-  color: rgba(237, 232, 213, 0.35);
-  border: 1px solid rgba(237, 232, 213, 0.1);
-  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
   padding: 6px 14px;
   font-size: 12px;
   font-family: var(--font);
@@ -1086,13 +1093,13 @@ button {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #C39E37;
+  color: var(--gold-deep);
   padding-top: 4px;
 }
 
 .notif-success.show { display: flex; }
 
-.success-check { font-size: 16px; }
+.success-check { font-size: 16px; color: var(--gold); }
 
 /* ── Demo next button — pinned to bottom of stage ── */
 .demo-next-btn {
