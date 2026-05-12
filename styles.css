@@ -348,6 +348,9 @@ button {
   padding: 96px 32px;
   display: flex;
   justify-content: center;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(154, 125, 40, 0.05), transparent 70%),
+    #f1e4c8;
 }
 
 .demo-section-inner {
