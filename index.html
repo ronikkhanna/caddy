@@ -4,42 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caddy Vault — Your Automated Workflow Caddy</title>
-  <meta name="description" content="A Chrome extension that automatically archives inactive tabs, groups them by topic, and restores them from your Google Calendar — so you never lose research again.">
+  <meta name="description" content="A Chrome extension that archives inactive tabs, groups them by topic, and restores them from your Google Calendar — so you never lose research again.">
   <meta property="og:title" content="Caddy Vault — Your Automated Workflow Caddy">
-  <meta property="og:description" content="A Chrome extension that automatically archives inactive tabs, groups them by topic, and restores them from your Google Calendar — so you never lose research again.">
+  <meta property="og:description" content="A Chrome extension that archives inactive tabs, groups them by topic, and restores them from your Google Calendar — so you never lose research again.">
   <meta property="og:type" content="website">
   <meta name="color-scheme" content="light">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- SPLASH SCREEN -->
-  <div id="splash" class="splash">
-    <div class="splash-content">
-      <div class="splash-line" id="splash-line1">
-        <span class="splash-word">Never</span>
-        <span class="splash-word">worry</span>
-        <span class="splash-word">about</span>
-        <span class="splash-word">your</span>
-        <span class="splash-word">tabs,</span>
-      </div>
-      <div class="splash-line splash-line2" id="splash-line2">
-        <span class="splash-word s2">ever</span>
-        <span class="splash-word s2">again.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="blob3" aria-hidden="true"></div>
-
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Caddy Vault</a>
+      <a href="#" class="nav-logo">Caddy <em>Vault</em></a>
       <ul class="nav-links">
         <li><a href="#how">How it works</a></li>
+        <li><a href="#compare">Compare</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
       <a href="downloads/caddyvault-v1.0.0.zip" class="nav-cta" download>Download</a>
@@ -53,60 +36,69 @@
   <div class="mobile-nav" id="mobile-nav">
     <ul>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#compare">Compare</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="downloads/caddyvault-v1.0.0.zip" download>Download</a></li>
     </ul>
   </div>
 
-  <!-- HERO — centered, minimal -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-center">
-      <p class="hero-chrome-badge">A Chrome Extension</p>
-      <h1 class="hero-headline">Your Automated <em>Workflow Caddy</em></h1>
-      <p class="hero-one-liner">Archive. Group. Restore. Your tabs, exactly when you need them.</p>
-      <p class="hero-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Stays in your browser</p>
-    </div>
-
-    <!-- Demo scroll button -->
-    <div class="demo-cta-area">
-      <p class="demo-cta-label">demo here</p>
-      <button class="demo-circle-btn" id="demo-scroll-btn">&#8595;</button>
+      <p class="hero-eyebrow">A Chrome Extension</p>
+      <h1 class="hero-headline">Your automated <em>workflow caddy.</em></h1>
+      <p class="hero-sub">
+        Caddy Vault archives the tabs you stop using, groups them by topic, and brings them back exactly when your calendar says you'll need them.
+      </p>
+      <div class="hero-actions">
+        <a href="downloads/caddyvault-v1.0.0.zip" class="btn-primary" download>Download the extension</a>
+        <button class="btn-ghost" id="demo-scroll-btn">See it in action</button>
+      </div>
+      <p class="hero-note">Free during early access &nbsp;·&nbsp; No account &nbsp;·&nbsp; Data stays in your browser</p>
     </div>
   </section>
+
+  <!-- DIVIDER -->
+  <div class="rule"></div>
 
   <!-- DEMO SECTION -->
   <section class="demo-section" id="demo">
     <div class="demo-section-inner">
+      <p class="section-eyebrow demo-eyebrow">Interactive Demo</p>
+      <h2 class="section-headline">A quick tour, in four scenes.</h2>
+
       <div class="demo-wrap" id="demo-wrap">
         <div class="demo-nav">
-          <button class="demo-arrow demo-arrow-l" id="demo-arrow-left">&#9664;</button>
-          <button class="demo-dot active" data-step="0"></button>
-          <button class="demo-dot" data-step="1"></button>
-          <button class="demo-dot" data-step="2"></button>
-          <button class="demo-dot" data-step="3"></button>
-          <button class="demo-arrow demo-arrow-r" id="demo-arrow-right">&#9654;</button>
+          <button class="demo-arrow demo-arrow-l" id="demo-arrow-left" aria-label="Previous">&#9664;</button>
+          <button class="demo-dot active" data-step="0" aria-label="Step 1"></button>
+          <button class="demo-dot" data-step="1" aria-label="Step 2"></button>
+          <button class="demo-dot" data-step="2" aria-label="Step 3"></button>
+          <button class="demo-dot" data-step="3" aria-label="Step 4"></button>
+          <button class="demo-arrow demo-arrow-r" id="demo-arrow-right" aria-label="Next">&#9654;</button>
         </div>
         <div class="demo-cursor" id="demo-cursor"><svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M0 0L0 20L5 15L8 22L11 21L8 14L14 14Z" fill="#EDE8D5" stroke="#09080F" stroke-width="1"/></svg></div>
 
         <!-- Stage 1: Archive -->
         <div class="demo-stage active" id="demo-0">
           <div class="stage-label">I. Archive</div>
-          <div class="browser-win">
-            <div class="browser-bar">
-              <div class="bwin-dots"><span></span><span></span><span></span></div>
-              <div class="bwin-url">canvas.ubc.ca</div>
-              <div class="bwin-exts"><div class="caddy-ext-icon">CV</div></div>
-            </div>
-            <div class="btabs" id="btabs">
-              <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
-              <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
-              <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
-              <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
-            </div>
-            <div class="bwin-body bwin-body-lg">
-              <div class="archive-toast" id="archive-toast">
-                <span class="toast-glyph">&#9672;</span>
-                <span>3 inactive tabs archived to vault</span>
+          <div class="stage-content">
+            <div class="browser-win">
+              <div class="browser-bar">
+                <div class="bwin-dots"><span></span><span></span><span></span></div>
+                <div class="bwin-url">canvas.ubc.ca</div>
+                <div class="bwin-exts"><div class="caddy-ext-icon">CV</div></div>
+              </div>
+              <div class="btabs" id="btabs">
+                <div class="btab" id="btab-0"><span class="btab-fav">E</span><span class="btab-title">Intro to Economics</span></div>
+                <div class="btab" id="btab-1"><span class="btab-fav">C</span><span class="btab-title">ECON 102 Guide</span></div>
+                <div class="btab" id="btab-2"><span class="btab-fav">I</span><span class="btab-title">Investopedia</span></div>
+                <div class="btab btab-active"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
+              </div>
+              <div class="bwin-body bwin-body-lg">
+                <div class="archive-toast" id="archive-toast">
+                  <span class="toast-glyph">&#9672;</span>
+                  <span>3 inactive tabs archived to vault</span>
+                </div>
               </div>
             </div>
           </div>
@@ -116,23 +108,25 @@
         <!-- Stage 2: Smart Groups -->
         <div class="demo-stage" id="demo-1">
           <div class="stage-label">II. Smart Groups</div>
-          <div class="ext-popup">
-            <div class="ext-header">
-              <span class="ext-wordmark">Caddy <em>Vault</em></span>
-              <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
+          <div class="stage-content">
+            <div class="ext-popup">
+              <div class="ext-header">
+                <span class="ext-wordmark">Caddy <em>Vault</em></span>
+                <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
+              </div>
+              <div class="ext-search-bar">
+                <span class="ext-search-glyph">&#10022;</span>
+                <span class="ext-search-placeholder">Search your vault&hellip;</span>
+              </div>
+              <div class="ext-groups-strip" id="ext-groups-1">
+                <div class="ext-chip" id="chip-uni"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
+                <div class="ext-chip" id="chip-res"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Research</span><span class="ext-chip-count">2 tabs</span></div>
+                <div class="ext-chip" id="chip-yt"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">YouTube</span><span class="ext-chip-count">2 tabs</span></div>
+                <div class="ext-chip" id="chip-soc"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">5 tabs</span></div>
+              </div>
+              <div class="ext-divider"><span></span><small>tap a group to restore all at once</small><span></span></div>
+              <div class="ext-results-area" id="ext-results-1"></div>
             </div>
-            <div class="ext-search-bar">
-              <span class="ext-search-glyph">&#10022;</span>
-              <span class="ext-search-placeholder">Search your vault&hellip;</span>
-            </div>
-            <div class="ext-groups-strip" id="ext-groups-1">
-              <div class="ext-chip" id="chip-uni"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
-              <div class="ext-chip" id="chip-res"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Research</span><span class="ext-chip-count">2 tabs</span></div>
-              <div class="ext-chip" id="chip-yt"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">YouTube</span><span class="ext-chip-count">2 tabs</span></div>
-              <div class="ext-chip" id="chip-soc"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">5 tabs</span></div>
-            </div>
-            <div class="ext-divider"><span></span><small>tap a group to restore all at once</small><span></span></div>
-            <div class="ext-results-area" id="ext-results-1"></div>
           </div>
           <button class="demo-next-btn" id="next-1" data-goto="2">Search the vault &nbsp;&rarr;</button>
         </div>
@@ -140,23 +134,25 @@
         <!-- Stage 3: Search -->
         <div class="demo-stage" id="demo-2">
           <div class="stage-label">III. Search</div>
-          <div class="ext-popup">
-            <div class="ext-header">
-              <span class="ext-wordmark">Caddy <em>Vault</em></span>
-              <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
+          <div class="stage-content">
+            <div class="ext-popup">
+              <div class="ext-header">
+                <span class="ext-wordmark">Caddy <em>Vault</em></span>
+                <div class="ext-live"><span class="ext-live-dot"></span>Live</div>
+              </div>
+              <div class="ext-search-bar ext-search-bar-active">
+                <span class="ext-search-glyph">&#10022;</span>
+                <span class="ext-search-typing" id="mock-query"></span><span class="ext-cursor-blink"></span>
+              </div>
+              <div class="ext-groups-strip" id="ext-groups-search">
+                <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
+                <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Research</span><span class="ext-chip-count">2 tabs</span></div>
+                <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">YouTube</span><span class="ext-chip-count">2 tabs</span></div>
+                <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">5 tabs</span></div>
+              </div>
+              <div class="ext-divider"><span></span><small id="mock-label">type to search&hellip;</small><span></span></div>
+              <div class="ext-results-area visible" id="mock-results" style="opacity:0;transform:translateY(6px)"></div>
             </div>
-            <div class="ext-search-bar ext-search-bar-active">
-              <span class="ext-search-glyph">&#10022;</span>
-              <span class="ext-search-typing" id="mock-query"></span><span class="ext-cursor-blink"></span>
-            </div>
-            <div class="ext-groups-strip" id="ext-groups-search">
-              <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Uni</span><span class="ext-chip-count">4 tabs</span></div>
-              <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Research</span><span class="ext-chip-count">2 tabs</span></div>
-              <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">YouTube</span><span class="ext-chip-count">2 tabs</span></div>
-              <div class="ext-chip visible"><span class="ext-chip-icon">&#9670;</span><span class="ext-chip-name">Social</span><span class="ext-chip-count">5 tabs</span></div>
-            </div>
-            <div class="ext-divider"><span></span><small id="mock-label">type to search&hellip;</small><span></span></div>
-            <div class="ext-results-area visible" id="mock-results" style="opacity:0;transform:translateY(6px)"></div>
           </div>
           <button class="demo-next-btn" id="next-2" data-goto="3">See smart restore &nbsp;&rarr;</button>
         </div>
@@ -164,56 +160,58 @@
         <!-- Stage 4: Calendar + Notification -->
         <div class="demo-stage" id="demo-3">
           <div class="stage-label">IV. Restore</div>
-          <div class="cal-mock" id="cal-mock">
-            <div class="browser-bar">
-              <div class="bwin-dots"><span></span><span></span><span></span></div>
-              <div class="bwin-url">calendar.google.com</div>
-              <div class="bwin-exts"><div class="caddy-ext-icon">CV</div></div>
-            </div>
-            <div class="btabs">
-              <div class="btab btab-active"><span class="btab-fav cal-fav">G</span><span class="btab-title">Google Calendar</span></div>
-              <div class="btab"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
-            </div>
-            <div class="cal-body">
-              <div class="cal-row">
-                <div class="cal-time">2 PM</div>
-                <div class="cal-slot"></div>
+          <div class="stage-content">
+            <div class="cal-mock" id="cal-mock">
+              <div class="browser-bar">
+                <div class="bwin-dots"><span></span><span></span><span></span></div>
+                <div class="bwin-url">calendar.google.com</div>
+                <div class="bwin-exts"><div class="caddy-ext-icon">CV</div></div>
               </div>
-              <div class="cal-row cal-row-event">
-                <div class="cal-time cal-time-now">2:57</div>
-                <div class="cal-event-block">
-                  <div class="cal-event-title">ECON Midterm Study</div>
-                  <div class="cal-event-sub">3:00 &ndash; 5:00 PM</div>
-                  <div class="cal-event-location">Library Study Room</div>
+              <div class="btabs">
+                <div class="btab btab-active"><span class="btab-fav cal-fav">G</span><span class="btab-title">Google Calendar</span></div>
+                <div class="btab"><span class="btab-fav">C</span><span class="btab-title">Canvas</span></div>
+              </div>
+              <div class="cal-body">
+                <div class="cal-row">
+                  <div class="cal-time">2 PM</div>
+                  <div class="cal-slot"></div>
+                </div>
+                <div class="cal-row cal-row-event">
+                  <div class="cal-time cal-time-now">2:57</div>
+                  <div class="cal-event-block">
+                    <div class="cal-event-title">ECON Midterm Study</div>
+                    <div class="cal-event-sub">3:00 &ndash; 5:00 PM</div>
+                    <div class="cal-event-location">Library Study Room</div>
+                  </div>
+                </div>
+                <div class="cal-row">
+                  <div class="cal-time">4 PM</div>
+                  <div class="cal-slot"></div>
                 </div>
               </div>
-              <div class="cal-row">
-                <div class="cal-time">4 PM</div>
-                <div class="cal-slot"></div>
+              <div class="corner-notif" id="corner-notif">
+                <div class="corner-badge">CV</div>
+                <div class="corner-notif-text">
+                  <div class="corner-title">ECON Midterm &middot; in 3 min</div>
+                  <div class="corner-sub">3 tabs ready to restore</div>
+                </div>
               </div>
             </div>
-            <div class="corner-notif" id="corner-notif">
-              <div class="corner-badge">CV</div>
-              <div class="corner-notif-text">
-                <div class="corner-title">ECON Midterm &middot; in 3 min</div>
-                <div class="corner-sub">3 tabs ready to restore</div>
+            <div class="caddy-notif" id="caddy-notif">
+              <div class="notif-top">
+                <div class="notif-badge">CV</div>
+                <div class="notif-app">Caddy Vault</div>
+                <div class="notif-time">now</div>
               </div>
-            </div>
-          </div>
-          <div class="caddy-notif" id="caddy-notif">
-            <div class="notif-top">
-              <div class="notif-badge">CV</div>
-              <div class="notif-app">Caddy Vault</div>
-              <div class="notif-time">now</div>
-            </div>
-            <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
-            <div class="notif-sub">3 matching tabs ready to restore</div>
-            <div class="notif-actions" id="notif-actions">
-              <button class="notif-btn-primary" id="restore-btn">Restore All</button>
-              <button class="notif-btn-ghost">Dismiss</button>
-            </div>
-            <div class="notif-success" id="notif-success">
-              <span class="success-check">&#10003;</span> 3 tabs restored
+              <div class="notif-title">ECON Midterm Study &middot; in 3 minutes</div>
+              <div class="notif-sub">3 matching tabs ready to restore</div>
+              <div class="notif-actions" id="notif-actions">
+                <button class="notif-btn-primary" id="restore-btn">Restore All</button>
+                <button class="notif-btn-ghost">Dismiss</button>
+              </div>
+              <div class="notif-success" id="notif-success">
+                <span class="success-check">&#10003;</span> 3 tabs restored
+              </div>
             </div>
           </div>
           <button class="demo-next-btn demo-next-ghost" data-goto="0">&#8592;&nbsp; Start over</button>
@@ -224,69 +222,60 @@
   </section>
 
   <!-- DIVIDER -->
-  <div class="rule-divider"><span>&#10022;</span></div>
+  <div class="rule"></div>
 
   <!-- HOW IT WORKS -->
   <section class="how" id="how">
     <div class="container">
-      <div class="how-header">
-        <p class="section-eyebrow">Caddy Vault</p>
-        <h2 class="reveal-heading">Three things. Done quietly.</h2>
-      </div>
+      <p class="section-eyebrow">How it works</p>
+      <h2 class="section-headline">Three things. Done quietly.</h2>
 
       <div class="how-steps">
+        <article class="how-card">
+          <span class="how-num">01</span>
+          <h3>Archive</h3>
+          <p>Tabs you stop using move to your Vault after 24 hours. Your browser stays clean, your research stays kept.</p>
+        </article>
 
-        <div class="how-step reveal">
-          <div class="step-number">I.</div>
-          <div class="step-body">
-            <h3>Archive</h3>
-            <p>Tabs inactive for 24 hours move to your Vault. Your browser stays clean.</p>
-          </div>
-        </div>
+        <article class="how-card">
+          <span class="how-num">02</span>
+          <h3>Smart Groups</h3>
+          <p>Your archived tabs are quietly sorted by topic — so a whole study session comes back in a single click.</p>
+        </article>
 
-        <div class="how-step reveal">
-          <div class="step-number">II.</div>
-          <div class="step-body">
-            <h3>Smart Groups</h3>
-            <p>Automatically categorizes and groups your tabs by topic — so you can restore a whole session in one click.</p>
-          </div>
-        </div>
-
-        <div class="how-step reveal">
-          <div class="step-number">III.</div>
-          <div class="step-body">
-            <h3>Restore</h3>
-            <p>Caddy Vault reads your calendar and has the right tabs ready before you sit down.</p>
-          </div>
-        </div>
-
+        <article class="how-card">
+          <span class="how-num">03</span>
+          <h3>Restore</h3>
+          <p>Caddy Vault reads your Google Calendar and has the right tabs waiting a few minutes before you sit down.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- DIVIDER -->
-  <div class="rule-divider"><span>&#10022;</span></div>
+  <div class="rule"></div>
 
-  <!-- THE PROBLEM -->
+  <!-- EDITORIAL -->
   <section class="editorial">
     <div class="container container-narrow">
-      <p class="section-eyebrow">Why Caddy Vault exists</p>
-      <p class="editorial-body reveal">
-        Every tab manager lets you <em>store</em> tabs — Caddy Vault is the only one that brings them back exactly when you need them.
+      <p class="section-eyebrow">Why it exists</p>
+      <p class="editorial-body">
+        Every other tab tool lets you <em>store</em> tabs. Caddy Vault is the only one that brings them back, in the right shape, exactly when you need them.
       </p>
     </div>
   </section>
 
   <!-- DIVIDER -->
-  <div class="rule-divider"><span>&#10022;</span></div>
+  <div class="rule"></div>
 
   <!-- COMPARISON -->
   <section class="compare" id="compare">
     <div class="container">
       <p class="section-eyebrow">How it compares</p>
-      <h2 class="compare-headline reveal-heading">Other tools store tabs. None of them resurface them.</h2>
-      <div class="compare-table-wrap reveal">
-        <table class="compare-table compare-table-sm">
+      <h2 class="section-headline">Others store tabs. None of them resurface them.</h2>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
           <thead>
             <tr>
               <th></th>
@@ -299,20 +288,20 @@
             <tr>
               <td>Session Buddy</td>
               <td class="c-yes">&#10003;</td>
-              <td class="c-no">No</td>
-              <td class="c-no">No</td>
+              <td class="c-no">&mdash;</td>
+              <td class="c-no">&mdash;</td>
             </tr>
             <tr>
               <td>OneTab</td>
               <td class="c-yes">&#10003;</td>
-              <td class="c-no">No</td>
-              <td class="c-no">No</td>
+              <td class="c-no">&mdash;</td>
+              <td class="c-no">&mdash;</td>
             </tr>
             <tr>
               <td>Reclaim AI</td>
-              <td class="c-no">No</td>
-              <td class="c-no">No</td>
-              <td class="c-partial">~</td>
+              <td class="c-no">&mdash;</td>
+              <td class="c-no">&mdash;</td>
+              <td class="c-partial">partial</td>
             </tr>
             <tr class="caddyvault-row">
               <td><strong>Caddy Vault</strong></td>
@@ -327,29 +316,29 @@
   </section>
 
   <!-- DIVIDER -->
-  <div class="rule-divider"><span>&#10022;</span></div>
+  <div class="rule"></div>
 
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
       <p class="section-eyebrow">Pricing</p>
-      <h2 class="pricing-headline reveal-heading">Simple. Fair. Student-priced.</h2>
+      <h2 class="section-headline">Simple. Fair. Student-priced.</h2>
 
       <div class="pricing-single">
-        <div class="pricing-card pricing-featured reveal">
+        <div class="pricing-card">
           <div class="plan-badge">Free during early access</div>
-          <div class="plan-tier">Everything. Free.</div>
+          <div class="plan-tier">Everything, included</div>
           <div class="plan-price">$0</div>
-          <div class="plan-interval">no credit card, no account</div>
+          <div class="plan-interval">No credit card, no account</div>
           <ul class="plan-list">
             <li>Unlimited archived tabs</li>
-            <li>Full keyword search</li>
-            <li>One-click restore</li>
+            <li>Full keyword search across your vault</li>
+            <li>One-click restore by topic</li>
             <li>Google Calendar integration</li>
             <li>Smart reminders with tab auto-match</li>
             <li>Everything stays in your browser</li>
           </ul>
-          <a href="downloads/caddyvault-v1.0.0.zip" class="btn-plan btn-plan-gold" download>Download the Extension</a>
+          <a href="downloads/caddyvault-v1.0.0.zip" class="btn-primary btn-block" download>Download the extension</a>
         </div>
       </div>
 
@@ -357,25 +346,30 @@
     </div>
   </section>
 
+  <!-- DIVIDER -->
+  <div class="rule"></div>
+
   <!-- DOWNLOAD CTA -->
   <section class="cta-section" id="download">
     <div class="container container-narrow cta-inner">
-      <h2 class="cta-headline reveal-heading">Stop losing your research.</h2>
-      <a href="download.html" class="btn-hero download-btn">Download the Extension</a>
-      <p class="cta-note">Free &nbsp;&middot;&nbsp; No account &nbsp;&middot;&nbsp; Data never leaves your browser</p>
+      <p class="section-eyebrow">Get started</p>
+      <h2 class="cta-headline">Stop losing your research.</h2>
+      <p class="cta-sub">Install once. Caddy Vault handles the rest in the background.</p>
+      <a href="download.html" class="btn-primary">Download the extension</a>
+      <p class="cta-note">Free &nbsp;·&nbsp; No account &nbsp;·&nbsp; Data never leaves your browser</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-wordmark">Caddy Vault</div>
+      <div class="footer-wordmark">Caddy <em>Vault</em></div>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Support</a>
       </div>
-      <p class="footer-copy">&#169; 2026 Caddy Vault &nbsp;&middot;&nbsp; Founded by Ronik Khanna</p>
+      <p class="footer-copy">&copy; 2026 Caddy Vault &nbsp;·&nbsp; Founded by Ronik Khanna</p>
     </div>
   </footer>
 
